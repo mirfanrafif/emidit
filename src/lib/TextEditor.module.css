@@ -1,0 +1,152 @@
+.buttonContainer:last-child {
+  border-right: 0;
+}
+
+.active {
+  color: var(--primary-500);
+}
+
+.disabled {
+  color: var(--neutrals-greyDisabled);
+}
+
+.container {
+  background-color: white;
+  border-radius: 16px;
+  flex: 1;
+}
+
+.editor > div {
+  padding: 32px;
+  margin: 0;
+  font-family: "Noto Sans", sans-serif;
+  font-style: normal;
+  color: #2c2c2c;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.smallerPaddingEditor > div {
+  padding: 16px;
+}
+
+.validationCounter {
+  display: flex;
+  flex-direction: row;
+}
+
+.counter {
+  font-size: 14px;
+  margin-left: auto;
+  margin-top: 8px;
+}
+
+.divider {
+  border: 1px solid var(--neutrals-greyDisabled);
+  height: 80%;
+}
+
+.emailTemplateNode {
+  font-weight: 600;
+}
+
+.debugger {
+  white-space: pre-wrap;
+  font-size: 12px;
+  overflow-y: scroll;
+  margin-left: 16px;
+  padding: 16px;
+  border-radius: 16px;
+  width: 100%;
+  height: 300px;
+  text-align: left;
+}
+
+.dropdownPopup {
+  width: 256px;
+}
+
+.dropdownButton {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  align-items: center;
+  font-weight: 600;
+}
+
+.dropdownButton:disabled {
+  color: var(--neutrals-greyDisabled);
+}
+
+.buttonExample {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background: var(--var-editor-button-bg);
+  color: var(--var-editor-button-text);
+  border-radius: 8px;
+  font-weight: bold;
+  padding-left: 16px;
+  padding-right: 16px;
+
+  display: inline-block;
+}
+
+.textAlignDropdown {
+  position: absolute;
+  top: 120%;
+  width: 128px;
+  padding: 16px;
+  background-color: white;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  z-index: 10;
+  left: 0;
+  justify-content: space-between;
+}
+
+.textAlignButton {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+}
+
+.textAlignButton:disabled {
+  color: var(--neutrals-greyDisabled);
+}
+
+.fontSerif {
+  font-family: "Noto Serif", serif;
+}
+
+.fontSans {
+  font-family: "Noto Sans", sans-serif;
+}
+
+.fontSerifJP {
+  font-family: "Noto Serif JP", serif;
+}
+
+.fontSansJP {
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+.card {
+  border-radius: 8px;
+  border: 1px solid var(--neutrals-greyTableBorder);
+}
+
+.popup {
+  position: absolute;
+  z-index: 10px;
+  transform: translateY(8px);
+}
+
+.preview {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}

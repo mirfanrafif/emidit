@@ -1,9 +1,8 @@
 //font size extension for tiptap
-import { Mark } from '@tiptap/react';
-import '@tiptap/extension-text-style';
-import { DEFAULT_VALUES } from '@/core/constants';
+import { Mark } from "@tiptap/react";
+import "@tiptap/extension-text-style";
 
-declare module '@tiptap/core' {
+declare module "@tiptap/core" {
   interface Commands<ReturnType> {
     fontSize: {
       /**
@@ -19,11 +18,11 @@ declare module '@tiptap/core' {
 }
 
 export const FontSizeExtension = Mark.create({
-  name: 'fontSize',
+  name: "fontSize",
 
   addOptions() {
     return {
-      types: ['textStyle'],
+      types: ["textStyle"],
     };
   },
 
@@ -42,8 +41,7 @@ export const FontSizeExtension = Mark.create({
                 style: `font-size: ${attributes.fontSize}px`,
               };
             },
-            parseHTML: (element) =>
-              element.style.fontSize.replace('px', DEFAULT_VALUES.emptyString),
+            parseHTML: (element) => element.style.fontSize.replace("px", ""),
           },
         },
       },
@@ -55,20 +53,20 @@ export const FontSizeExtension = Mark.create({
       setFontSize:
         (fontSize: number) =>
         ({ chain }) => {
-          if (fontSize === DEFAULT_VALUES.bodyFontSize) {
+          if (fontSize === 14) {
             return chain()
-              .setMark('textStyle', { fontSize: null })
+              .setMark("textStyle", { fontSize: null })
               .removeEmptyTextStyle()
               .run();
           }
 
-          return chain().setMark('textStyle', { fontSize: fontSize }).run();
+          return chain().setMark("textStyle", { fontSize: fontSize }).run();
         },
       unsetFontSize:
         () =>
         ({ chain }) => {
           return chain()
-            .setMark('textStyle', { fontSize: null })
+            .setMark("textStyle", { fontSize: null })
             .removeEmptyTextStyle()
             .run();
         },

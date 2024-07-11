@@ -1,14 +1,14 @@
 import { mergeAttributes, Node, nodeInputRule } from "@tiptap/core";
 import { ReactNodeViewRenderer } from "@tiptap/react";
 import ImageResizeComponent from "./ImageResizeComponent";
-import { Fragment } from "react";
+import { ReactNode } from "react";
 
 export interface ImagePlaceholderOptions {
   inline: boolean;
   allowBase64: boolean;
   isPreview: boolean;
   style: string;
-  resizeIcon: React.ReactNode;
+  resizeIcon: ReactNode;
 }
 
 declare module "@tiptap/core" {
@@ -40,7 +40,7 @@ export const ImagePlaceholder = Node.create<ImagePlaceholderOptions>({
       allowBase64: false,
       isPreview: false,
       style: "object-fit: cover; border-radius: 8px;",
-      resizeIcon: <Fragment>⊙</Fragment>,
+      resizeIcon: <>⊙</>,
     };
   },
 
