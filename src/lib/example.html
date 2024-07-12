@@ -1,109 +1,371 @@
-<p style="text-align: center">
-  <img
-    data-type="image-placeholder"
-    src="https://placehold.co/600x400"
-    style="width: 235px; height: 106px; object-fit: cover; border-radius: 8px"
-  />
-</p>
-<p></p>
-<h1>You have received a new booking request (Booking ID: 120938293)</h1>
-<p></p>
-<p>Dear Yukisawa Ski School,</p>
-<p>
-  You have received a new booking request from Jade Hotel Group. Booking ID:
-  120938293
-</p>
-<p></p>
-<p>
-  <a data-type="button" class="_buttonExample_f71j6_83"
-    >Review booking request</a
-  >
-</p>
-<p></p>
-<hr />
-<h3>Guest Information</h3>
-<section data-type="text-highlight" class="text-highlight">
-  Jane Doe - jane.doe@gmail.com<br />4517 Washington Ave. Manchester, Kentucky
-  39495
-</section>
-<p></p>
-<p>Notes</p>
-<section data-type="text-highlight" class="text-highlight">-</section>
-<p></p>
-<h3>Booked Experiences</h3>
-<table style="width: 729px">
-  <colgroup>
-    <col style="width: 58px" />
-    <col style="width: 342px" />
-    <col style="width: 145px" />
-    <col style="width: 81px" />
-    <col style="width: 103px" />
-  </colgroup>
-  <tbody>
-    <tr>
-      <th colspan="1" rowspan="1" colwidth="58">
-        <p style="text-align: left">Date</p>
-      </th>
-      <th colspan="1" rowspan="1" colwidth="342">
-        <p style="text-align: left">Product Name</p>
-      </th>
-      <th colspan="1" rowspan="1" colwidth="145">
-        <p style="text-align: right">Rate</p>
-      </th>
-      <th colspan="1" rowspan="1" colwidth="81">
-        <p style="text-align: right">Qty</p>
-      </th>
-      <th colspan="1" rowspan="1" colwidth="103">
-        <p style="text-align: right">Total</p>
-      </th>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1" colwidth="58"><p>2024/01/01</p></td>
-      <td colspan="1" rowspan="1" colwidth="342">
-        <p>Ski Full Day in Goryu<br />5 People</p>
-      </td>
-      <td colspan="1" rowspan="1" colwidth="145">
-        <p style="text-align: right">¥ 40.000</p>
-      </td>
-      <td colspan="1" rowspan="1" colwidth="81">
-        <p style="text-align: right">01</p>
-      </td>
-      <td colspan="1" rowspan="1" colwidth="103">
-        <p style="text-align: right">¥ 40.000</p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1" colwidth="58"><p>2024/01/02</p></td>
-      <td colspan="1" rowspan="1" colwidth="342">
-        <p>Ski Full Day in Goryu<br />6 People</p>
-      </td>
-      <td colspan="1" rowspan="1" colwidth="145">
-        <p style="text-align: right">¥ 40.000</p>
-      </td>
-      <td colspan="1" rowspan="1" colwidth="81">
-        <p style="text-align: right">02</p>
-      </td>
-      <td colspan="1" rowspan="1" colwidth="103">
-        <p style="text-align: right">¥ 80.000</p>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<p></p>
-<p>Note</p>
-<ul>
-  <li>
-    <p>
-      The invoice and payment schedule will be sent to your customer once the
-      booking is confirmed.
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        --neutrals-greyDisabled: #cad0dd;
+        --neutrals-grey: #9e9fbf;
+        --neutrals-greyTableBorder: #dce2f2;
+        --neutrals-greyBg: #f8f9fb;
+        --neutrals-black: #2c2c2c;
+        --neutrals-white: #ffffff;
+        --neutrals-hawkes-blue: #d5ddea;
+        --neutrals-alice-blue: #fdfeff;
+        --neutrals-solitude: #ecf0f5;
+
+        --var-editor-button-bg: #047d86;
+        --var-editor-button-text: #ffffff;
+      }
+
+      .ProseMirror {
+        position: relative;
+        outline: none;
+        width: 640px;
+        margin: 0 auto;
+        font-family: sans-serif;
+      }
+
+      .ProseMirror > * {
+        margin: 0;
+      }
+
+      .ProseMirror > * + * {
+        margin-top: 0.75em;
+      }
+
+      .ProseMirror ul,
+      .ProseMirror ol {
+        padding: 0 1rem;
+      }
+
+      .ProseMirror ul {
+        margin: 0.25rem 0;
+        list-style: disc;
+      }
+
+      .ProseMirror ol {
+        margin: 0.25rem 0;
+        list-style: decimal;
+      }
+
+      .ProseMirror h1,
+      .ProseMirror h2,
+      .ProseMirror h3,
+      .ProseMirror h4,
+      .ProseMirror h5,
+      .ProseMirror h6,
+      .ProseMirror p:empty:before {
+        content: " ";
+        display: inline-block;
+      }
+
+      .ProseMirror h1,
+      .ProseMirror h2,
+      .ProseMirror h3,
+      .ProseMirror h4,
+      .ProseMirror h5,
+      .ProseMirror h6 {
+        line-height: 1.3;
+        font-weight: 400;
+      }
+
+      .ProseMirror p {
+        font-size: 16px;
+      }
+
+      .ProseMirror h1 {
+        font-size: 24px;
+      }
+
+      .ProseMirror h2 {
+        font-size: 20px;
+      }
+
+      .ProseMirror h3 {
+        font-size: 18px;
+      }
+
+      .ProseMirror h4 {
+        font-size: 16px;
+      }
+
+      .ProseMirror h5 {
+        font-size: 14px;
+      }
+
+      .ProseMirror h6 {
+        font-size: 12px;
+      }
+
+      .ProseMirror code {
+        background-color: rgba(97, 97, 97, 0.1);
+        color: #616161;
+      }
+
+      .ProseMirror pre {
+        background: #0d0d0d;
+        color: #fff;
+        font-family: "JetBrainsMono", monospace;
+        padding: 0.75rem 1rem;
+        border-radius: 0.5rem;
+      }
+
+      .ProseMirror pre code {
+        color: inherit;
+        padding: 0;
+        background: none;
+        font-size: 0.8rem;
+      }
+
+      .ProseMirror img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      .ProseMirror blockquote {
+        padding-left: 1rem;
+        border-left: 2px solid rgba(13, 13, 13, 0.1);
+      }
+
+      .ProseMirror hr {
+        border: none;
+        border-top: 2px solid rgba(13, 13, 13, 0.1);
+        margin: 2rem 0;
+      }
+
+      .ProseMirror table {
+        border-collapse: separate;
+        border-spacing: 0;
+        width: 100%;
+      }
+
+      .ProseMirror table .column-resize-handle {
+        background-color: #c6c9ff;
+        bottom: -2px;
+        position: absolute;
+        right: -3px;
+        pointer-events: none;
+        top: 0;
+        width: 5px;
+      }
+
+      .ProseMirror th {
+        box-sizing: border-box;
+        min-width: 2em;
+        vertical-align: top;
+      }
+
+      .ProseMirror table .selectedCell:after {
+        background: #c6c9ff55;
+        content: "";
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        pointer-events: none;
+        position: absolute;
+        z-index: 2;
+      }
+
+      .ProseMirror img .ProseMirror-selectednode {
+        outline: 2px solid #1c28e5;
+        outline-offset: 2px;
+      }
+
+      .image-resizer {
+        display: inline-flex;
+        position: relative;
+        flex-grow: 0;
+      }
+      .image-resizer .resize-trigger {
+        position: absolute;
+        right: 0px;
+        bottom: 0px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        color: #3259a5;
+        transform: translate(5px, 10px);
+      }
+      .image-resizer:hover .resize-trigger {
+        opacity: 1;
+      }
+
+      .ProseMirror .button {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        background: var(--var-editor-button-bg);
+        color: var(--var-editor-button-text);
+        border-radius: 8px;
+        font-weight: bold;
+        padding-left: 16px;
+        padding-right: 16px;
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .ProseMirror .text-highlight {
+        padding: 16px;
+        background-color: var(--neutrals-greyBg);
+        border-radius: 8px;
+      }
+
+      .ProseMirror table th {
+        border-bottom: 1px solid var(--neutrals-greyTableBorder);
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .ProseMirror table td {
+        box-sizing: border-box;
+        min-width: 2em;
+        padding-left: 16px;
+        padding-right: 16px;
+        vertical-align: top;
+      }
+
+      .ProseMirror table tr:not(:last-child) td {
+        border-bottom: 1px solid var(--neutrals-greyTableBorder);
+      }
+    </style>
+  </head>
+  <body class="ProseMirror">
+    <p style="text-align: center">
+      <img
+        data-type="image-placeholder"
+        src="{{vendor_logo}}"
+        style="
+          width: 254px;
+          height: 117px;
+          object-fit: cover;
+          border-radius: 8px;
+        "
+      />
     </p>
-  </li>
-  <li>
+    <p></p>
+    <h1>
+      Your booking request (Booking ID: 120938293) has been sent for review
+    </h1>
+    <p></p>
+    <p>Dear Jane Doe,</p>
     <p>
-      If you have any questions, you can reach out to Jade Hotel Group at
-      info@jadehotelgroup.com
+      We have received your booking request and we are currently reviewing it.
+      Your Booking ID is 120938293.
     </p>
-  </li>
-</ul>
-<hr />
-<p>This is a system generated message. Do not reply.</p>
+    <p>
+      Please note that we will provide an update regarding your booking status
+      within the next 7 days.
+    </p>
+    <p></p>
+    <p>
+      <a data-type="button" class="button" href="">Review booking request</a>
+    </p>
+    <p></p>
+    <hr />
+    <h3>Guest Information</h3>
+    <section data-type="text-highlight" class="text-highlight">
+      Jane Doe - jane.doe@gmail.com<br />4517 Washington Ave. Manchester,
+      Kentucky 39495
+    </section>
+    <p></p>
+    <h3>Notes</h3>
+    <section data-type="text-highlight" class="text-highlight">-</section>
+    <p></p>
+    <h3>Booked Experiences</h3>
+    <table style="width: 637px">
+      <colgroup>
+        <col style="width: 58px" />
+        <col style="width: 286px" />
+        <col style="width: 109px" />
+        <col style="width: 81px" />
+        <col style="width: 103px" />
+      </colgroup>
+      <tbody>
+        <tr>
+          <th colspan="1" rowspan="1" colwidth="58">
+            <p style="text-align: left">Date</p>
+          </th>
+          <th colspan="1" rowspan="1" colwidth="286">
+            <p style="text-align: left">Product Name</p>
+          </th>
+          <th colspan="1" rowspan="1" colwidth="109">
+            <p style="text-align: right">Rate</p>
+          </th>
+          <th colspan="1" rowspan="1" colwidth="81">
+            <p style="text-align: right">Qty</p>
+          </th>
+          <th colspan="1" rowspan="1" colwidth="103">
+            <p style="text-align: right">Total</p>
+          </th>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1" colwidth="58"><p>2024/01/01</p></td>
+          <td colspan="1" rowspan="1" colwidth="286">
+            <p>Ski Full Day in Goryu<br />5 People</p>
+          </td>
+          <td colspan="1" rowspan="1" colwidth="109">
+            <p style="text-align: right">¥ 40.000</p>
+          </td>
+          <td colspan="1" rowspan="1" colwidth="81">
+            <p style="text-align: right">01</p>
+          </td>
+          <td colspan="1" rowspan="1" colwidth="103">
+            <p style="text-align: right">¥ 40.000</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1" colwidth="58">
+            <p>2024/01/02</p>
+          </td>
+          <td colspan="1" rowspan="1" colwidth="286">
+            <p>Ski Full Day in Goryu<br />6 People</p>
+          </td>
+          <td colspan="1" rowspan="1" colwidth="109">
+            <p style="text-align: right">¥ 40.000</p>
+          </td>
+          <td colspan="1" rowspan="1" colwidth="81">
+            <p style="text-align: right">02</p>
+          </td>
+          <td colspan="1" rowspan="1" colwidth="103">
+            <p style="text-align: right">¥ 80.000</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p></p>
+    <p>Note</p>
+    <ul>
+      <li>
+        <p>
+          The invoice and payment schedule will be sent to you once the booking
+          is confirmed.
+        </p>
+      </li>
+      <li>
+        <p>
+          If you do not receive any confirmation within 7 days, or if you have
+          any questions please feel free to contact us.
+        </p>
+      </li>
+    </ul>
+    <hr />
+    <p>This is a system generated message. Do not reply.</p>
+    <hr />
+    <p></p>
+    <p>
+      <img
+        data-type="image-placeholder"
+        src="{{delta_logo_url}}"
+        style="
+          width: 207px;
+          height: 93px;
+          object-fit: cover;
+          border-radius: 8px;
+        "
+      />
+    </p>
+    <p>
+      Copyright © 2024 Delta HQ.<br />The All-in-One Platform for Smarter
+      Property and Experience Management
+    </p>
+  </body>
+</html>

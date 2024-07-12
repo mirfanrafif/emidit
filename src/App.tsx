@@ -20,11 +20,7 @@ function App() {
   120938293
 </p>
 <p></p>
-<p>
-  <a data-type="button" class="_buttonExample_f71j6_83"
-    >Review booking request</a
-  >
-</p>
+<p><a data-type="button" class="button" href="">Review booking request</a></p>
 <p></p>
 <hr />
 <h3>Guest Information</h3>
@@ -33,15 +29,15 @@ function App() {
   39495
 </section>
 <p></p>
-<p>Notes</p>
+<h3>Notes</h3>
 <section data-type="text-highlight" class="text-highlight">-</section>
 <p></p>
 <h3>Booked Experiences</h3>
-<table style="width: 729px">
+<table style="width: 632px">
   <colgroup>
     <col style="width: 58px" />
-    <col style="width: 342px" />
-    <col style="width: 145px" />
+    <col style="width: 281px" />
+    <col style="width: 109px" />
     <col style="width: 81px" />
     <col style="width: 103px" />
   </colgroup>
@@ -50,10 +46,10 @@ function App() {
       <th colspan="1" rowspan="1" colwidth="58">
         <p style="text-align: left">Date</p>
       </th>
-      <th colspan="1" rowspan="1" colwidth="342">
+      <th colspan="1" rowspan="1" colwidth="281">
         <p style="text-align: left">Product Name</p>
       </th>
-      <th colspan="1" rowspan="1" colwidth="145">
+      <th colspan="1" rowspan="1" colwidth="109">
         <p style="text-align: right">Rate</p>
       </th>
       <th colspan="1" rowspan="1" colwidth="81">
@@ -65,10 +61,10 @@ function App() {
     </tr>
     <tr>
       <td colspan="1" rowspan="1" colwidth="58"><p>2024/01/01</p></td>
-      <td colspan="1" rowspan="1" colwidth="342">
+      <td colspan="1" rowspan="1" colwidth="281">
         <p>Ski Full Day in Goryu<br />5 People</p>
       </td>
-      <td colspan="1" rowspan="1" colwidth="145">
+      <td colspan="1" rowspan="1" colwidth="109">
         <p style="text-align: right">¥ 40.000</p>
       </td>
       <td colspan="1" rowspan="1" colwidth="81">
@@ -80,10 +76,10 @@ function App() {
     </tr>
     <tr>
       <td colspan="1" rowspan="1" colwidth="58"><p>2024/01/02</p></td>
-      <td colspan="1" rowspan="1" colwidth="342">
+      <td colspan="1" rowspan="1" colwidth="281">
         <p>Ski Full Day in Goryu<br />6 People</p>
       </td>
-      <td colspan="1" rowspan="1" colwidth="145">
+      <td colspan="1" rowspan="1" colwidth="109">
         <p style="text-align: right">¥ 40.000</p>
       </td>
       <td colspan="1" rowspan="1" colwidth="81">
@@ -113,6 +109,14 @@ function App() {
 </ul>
 <hr />
 <p>This is a system generated message. Do not reply.</p>
+<p></p>
+<p>
+  <img
+    data-type="image-placeholder"
+    src="{{delta_logo_url}}"
+    style="width: 207px; height: 93px; object-fit: cover; border-radius: 8px"
+  />
+</p>
 
 `
   );

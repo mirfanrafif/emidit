@@ -23,10 +23,8 @@
     "@tiptap/starter-kit": "^2.4.0",
     "classnames": "^2.3.2",
     "esthetic": "^0.6.4-beta.1",
-    "postcss": "^8.4.39",
     "react-code-blocks": "^0.1.6",
-    "simply-beautiful": "^1.0.1",
-    "tailwindcss": "^3.4.4"
+    "simply-beautiful": "^1.0.1"
   },
   "devDependencies": {
     "@types/node": "20.14.10",

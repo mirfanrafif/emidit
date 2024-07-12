@@ -33,6 +33,28 @@ const Menubar = (props: { editor: Editor | null }) => {
         h3
       </button>
       <button
+        onClick={() =>
+          editor?.chain().focus().toggleHeading({ level: 4 }).run()
+        }
+      >
+        h4
+      </button>
+      <button
+        onClick={() =>
+          editor?.chain().focus().toggleHeading({ level: 5 }).run()
+        }
+      >
+        h5
+      </button>
+      <button
+        onClick={() =>
+          editor?.chain().focus().toggleHeading({ level: 6 }).run()
+        }
+      >
+        h6
+      </button>
+
+      <button
         onClick={() => {
           editor?.chain().focus().toggleTextHighlight().run();
         }}

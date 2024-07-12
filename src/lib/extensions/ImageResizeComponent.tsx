@@ -36,7 +36,7 @@ export default function ImageResizeComponent(props: any) {
         src={
           props.extension.options.isPreview &&
           (props.node.attrs.src as string).match(/({{|\[%)/gm)
-            ? "/img-placeholder.svg"
+            ? "https://placehold.co/600x400?text=Test+Image"
             : props.node.attrs.src
         }
         style={{
