@@ -160,5 +160,6 @@
 }
 
 .debuggerRow {
-  @apply grid grid-cols-2 gap-4;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }

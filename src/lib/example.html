@@ -1,10 +1,3 @@
-import { useState } from "react";
-import "./App.css";
-import TextEditor from "./lib/TextEditor";
-
-function App() {
-  const [value, setValue] = useState(
-    `
 <h1>You have received a new booking request (Booking ID: 120938293)</h1>
 <p></p>
 <p>Dear Yukisawa Ski School,</p>
@@ -85,18 +78,3 @@ function App() {
 </ul>
 <p></p>
 <p>This is a system generated message. Do not reply.</p>
-
-
-`
-  );
-
-  return (
-    <div className="App">
-      <div className="grid">
-        <TextEditor value={value} />
-      </div>
-    </div>
-  );
-}
-
-export default App;

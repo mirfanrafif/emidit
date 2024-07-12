@@ -60,17 +60,17 @@ export const TextHighlightExtension = Node.create({
       setTextHighlight:
         () =>
         ({ commands }) => {
-          return commands.setMark(this.name);
+          return commands.setNode("text-highlight");
         },
       unsetTextHighlight:
         () =>
         ({ commands }) => {
-          return commands.unsetMark(this.name);
+          return commands.setNode("paragraph");
         },
       toggleTextHighlight:
         () =>
         ({ commands }) => {
-          return commands.toggleMark(this.name);
+          return commands.toggleNode("text-highlight", "paragraph");
         },
     };
   },

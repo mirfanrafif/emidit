@@ -25,6 +25,9 @@ import classNames from "classnames";
 
 import styles from "./TextEditor.module.css";
 import { TextHighlightExtension } from "./extensions/TextHighlight.extension";
+import { CodeBlock, dracula } from "react-code-blocks";
+import esthetic from "esthetic";
+import Menubar from "./menubar/Menubar";
 
 export type TextEditorProps = {
   defaultValue?: string;
@@ -95,6 +98,8 @@ export default function TextEditor(props: TextEditorProps) {
       Underline.configure(),
       TextAlign.configure({
         types: ["heading", "paragraph"],
+        alignments: ["left", "center", "right", "justify"],
+        defaultAlignment: "justify",
       }),
       FontSizeExtension,
       EmailTemplateExtension,
@@ -157,52 +162,6 @@ export default function TextEditor(props: TextEditorProps) {
     return JSON.stringify(editor.getJSON(), null, 2);
   }, [editor, editor?.getHTML()]);
 
-  const getToolbar = () => (
-    <div className={styles.toolbar}>
-      <button
-        onClick={() => {
-          editor?.chain().focus().toggleHeading({ level: 1 }).run();
-        }}
-      >
-        h1
-      </button>
-      <button
-        onClick={() => {
-          editor?.chain().focus().toggleHeading({ level: 2 }).run();
-        }}
-      >
-        h2
-      </button>
-      <button
-        onClick={() => {
-          editor?.chain().focus().toggleHeading({ level: 3 }).run();
-        }}
-      >
-        h3
-      </button>
-      <button
-        onClick={() => {
-          editor?.chain().focus().toggleTextHighlight().run();
-        }}
-      >
-        Text Highlight
-      </button>
-      <button onClick={() => editor?.chain().focus().setParagraph().run()}>
-        paragraph
-      </button>
-      <button
-        onClick={() => {
-          editor?.commands.addButton({
-            text: "Hello",
-            href: "https://google.com",
-          });
-        }}
-      >
-        button
-      </button>
-    </div>
-  );
-
   return (
     <div>
       {props.label && (
@@ -215,7 +174,7 @@ export default function TextEditor(props: TextEditorProps) {
           className={classNames(styles.container, props.className)}
           data-testid={`${props.pageName}_contentsTextEditor`}
         >
-          {getToolbar()}
+          <Menubar editor={editor} />
           <div
             className={classNames(styles.editor, {
               [styles.smallerPaddingEditor]: props.smallerEditor,
@@ -236,6 +195,14 @@ export default function TextEditor(props: TextEditorProps) {
         ></div>
 
         <div className={styles.debuggerRow}>
+          <CodeBlock
+            language="html"
+            text={getPreview ?? "No Editor"}
+            theme={dracula}
+            codeBlockStyle={{
+              fontFamily: "monospace",
+            }}
+          />
           <code className={styles.debugger}>{getPreview ?? "No editor"}</code>
           <code className={styles.debugger}>{getJson ?? "No editor"}</code>
         </div>

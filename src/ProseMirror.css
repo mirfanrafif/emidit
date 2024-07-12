@@ -195,3 +195,21 @@
   background-color: var(--neutrals-greyBg);
   border-radius: 8px;
 }
+
+.ProseMirror table {
+}
+
+.ProseMirror table th {
+  padding-left: 16px;
+  padding-right: 16px;
+  border-bottom: 1px solid var(--neutrals-greyTableBorder);
+}
+
+.ProseMirror table td {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.ProseMirror table tr:not(:last-child) td {
+  border-bottom: 1px solid var(--neutrals-greyTableBorder);
+}
