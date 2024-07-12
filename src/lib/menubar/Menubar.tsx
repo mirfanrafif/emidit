@@ -5,9 +5,12 @@ import { Editor } from "@tiptap/react";
 import AddTableMenu from "./AddTableMenu";
 import AddButton from "./AddButton";
 import AddImage from "./AddImage";
+import SetColorPopup from "./SetColor";
 
 const Menubar = (props: { editor: Editor | null }) => {
   const { editor } = props;
+
+  const timeoutRef = React.useRef<NodeJS.Timeout | null>(null);
 
   return (
     <div className={styles.toolbar}>
@@ -118,6 +121,15 @@ const Menubar = (props: { editor: Editor | null }) => {
             href,
           });
         }}
+      />
+
+      <input
+        type="color"
+        onChange={(event) => {
+          props.editor?.chain().focus().setColor(event.target.value).run();
+        }}
+        value={props.editor?.getAttributes("textStyle").color ?? "#000000"}
+        data-testid="setColor"
       />
 
       <AddImage

@@ -5,7 +5,7 @@
   margin: 0 auto;
 }
 
-.ProseMirror > * {
+.ProseMirror * {
   margin: 0;
 }
 
@@ -47,6 +47,7 @@
 .ProseMirror h6 {
   line-height: 1.3;
   font-weight: 400;
+  display: block;
 }
 
 .ProseMirror p {
@@ -202,14 +203,12 @@
 }
 
 .ProseMirror table th {
-  padding-left: 16px;
-  padding-right: 16px;
+  padding: 16px;
   border-bottom: 1px solid var(--neutrals-greyTableBorder);
 }
 
 .ProseMirror table td {
-  padding-left: 16px;
-  padding-right: 16px;
+  padding: 16px;
 }
 
 .ProseMirror table tr:not(:last-child) td {

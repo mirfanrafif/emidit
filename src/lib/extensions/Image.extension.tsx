@@ -106,13 +106,6 @@ export const ImagePlaceholder = Node.create<ImagePlaceholderOptions>({
   },
 
   renderHTML({ node, HTMLAttributes }) {
-    console.log(
-      "src",
-      node.attrs.src,
-      this.options.isPreview && (node.attrs.src as string).match(/({{|\[)/gm)
-        ? true
-        : false
-    );
     return [
       "img",
       mergeAttributes(HTMLAttributes, {
