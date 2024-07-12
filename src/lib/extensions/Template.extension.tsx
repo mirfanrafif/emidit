@@ -1,10 +1,10 @@
-import { Node, mergeAttributes } from '@tiptap/react';
+import { Node, mergeAttributes } from "@tiptap/react";
 
 type EmailTemplateNodeAttributes = {
   key: string;
 };
 
-declare module '@tiptap/core' {
+declare module "@tiptap/core" {
   interface Commands<ReturnType> {
     addTemplate: {
       /**
@@ -16,11 +16,11 @@ declare module '@tiptap/core' {
 }
 
 export const EmailTemplateExtension = Node.create<EmailTemplateNodeAttributes>({
-  name: 'emailTemplateNode',
+  name: "emailTemplateNode",
 
-  group: 'inline',
+  group: "inline",
 
-  content: 'text*',
+  content: "text*",
 
   selectable: false,
 
@@ -67,9 +67,9 @@ export const EmailTemplateExtension = Node.create<EmailTemplateNodeAttributes>({
 
   renderHTML({ node, HTMLAttributes }) {
     return [
-      'span',
+      "span",
       mergeAttributes(HTMLAttributes, {
-        'data-type': this.name,
+        "data-type": this.name,
       }),
       node.attrs.key,
     ];

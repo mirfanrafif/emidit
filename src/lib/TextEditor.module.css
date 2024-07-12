@@ -16,9 +16,13 @@
   flex: 1;
 }
 
+.editor {
+  border-radius: 8px;
+}
+
 .editor > div {
-  padding: 32px;
   margin: 0;
+  margin-top: 16px;
   font-family: "Noto Sans", sans-serif;
   font-style: normal;
   color: #2c2c2c;
@@ -54,10 +58,8 @@
   white-space: pre-wrap;
   font-size: 12px;
   overflow-y: scroll;
-  margin-left: 16px;
   padding: 16px;
   border-radius: 16px;
-  width: 100%;
   height: 300px;
   text-align: left;
 }
@@ -146,7 +148,13 @@
 }
 
 .preview {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-direction: column;
   gap: 16px;
+}
+
+.preview > * {
+  border-radius: 8px;
+  border: 1px solid var(--neutrals-greyTableBorder);
+  padding: 16px;
 }

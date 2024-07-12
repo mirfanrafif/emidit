@@ -68,15 +68,12 @@ export const ButtonExtension = Node.create<ButtonOptions>({
       addButton:
         (attributes: ButtonAttributes) =>
         ({ chain }) => {
+          console.log("attributes", attributes);
           return chain()
             .insertContent([
               {
                 type: this.name,
                 attrs: attributes,
-              },
-              {
-                type: "text",
-                text: "",
               },
             ])
             .run();

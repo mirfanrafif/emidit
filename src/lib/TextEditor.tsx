@@ -24,6 +24,7 @@ import { CustomTableExtension } from "./extensions/CustomTable.extension";
 import classNames from "classnames";
 
 import styles from "./TextEditor.module.css";
+import { TextHighlightExtension } from "./extensions/TextHighlight.extension";
 
 export type TextEditorProps = {
   defaultValue?: string;
@@ -110,6 +111,7 @@ export default function TextEditor(props: TextEditorProps) {
         style: "object-fit: cover; border-radius: 8px;",
         inline: true,
       }),
+      TextHighlightExtension,
     ],
     [props.maxLength, buttonDisplayExtension, buttonSaveExtension]
   );
@@ -147,6 +149,42 @@ export default function TextEditor(props: TextEditorProps) {
     );
   }, [editor, editor?.getHTML()]);
 
+  const getToolbar = () => (
+    <div className={styles.toolbar}>
+      <button
+        onClick={() => {
+          editor?.chain().focus().toggleHeading({ level: 1 }).run();
+        }}
+      >
+        h1
+      </button>
+      <button
+        onClick={() => {
+          editor?.chain().focus().toggleHeading({ level: 2 }).run();
+        }}
+      >
+        h2
+      </button>
+      <button
+        onClick={() => {
+          editor?.chain().focus().toggleHeading({ level: 3 }).run();
+        }}
+      >
+        h3
+      </button>
+      <button
+        onClick={() => {
+          editor?.commands.addButton({
+            text: "Hello",
+            href: "https://google.com",
+          });
+        }}
+      >
+        button
+      </button>
+    </div>
+  );
+
   return (
     <div>
       {props.label && (
@@ -159,6 +197,7 @@ export default function TextEditor(props: TextEditorProps) {
           className={classNames(styles.container, props.className)}
           data-testid={`${props.pageName}_contentsTextEditor`}
         >
+          {getToolbar()}
           <div
             className={classNames(styles.editor, {
               [styles.smallerPaddingEditor]: props.smallerEditor,
@@ -171,14 +210,14 @@ export default function TextEditor(props: TextEditorProps) {
           </div>
         </div>
 
-        <code className={styles.debugger}>{getPreview ?? "No editor"}</code>
-
         <div
           className="ProseMirror"
           dangerouslySetInnerHTML={{
             __html: getPreview ?? "No editor",
           }}
         ></div>
+
+        <code className={styles.debugger}>{getPreview ?? "No editor"}</code>
       </div>
       <div className={styles.validationCounter}>
         {props.error && <p>{props.error}</p>}

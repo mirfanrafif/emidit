@@ -1,0 +1,197 @@
+.ProseMirror {
+  position: relative;
+  outline: none;
+}
+
+.ProseMirror > * {
+  margin: 0;
+}
+
+.ProseMirror > * + * {
+  margin-top: 0.75em;
+}
+
+.ProseMirror ul,
+.ProseMirror ol {
+  padding: 0 1rem;
+}
+
+.ProseMirror ul {
+  margin: 0.25rem 0;
+  list-style: disc;
+}
+
+.ProseMirror ol {
+  margin: 0.25rem 0;
+  list-style: decimal;
+}
+
+.ProseMirror h1,
+.ProseMirror h2,
+.ProseMirror h3,
+.ProseMirror h4,
+.ProseMirror h5,
+.ProseMirror h6,
+.ProseMirror p:empty:before {
+  content: " ";
+  display: inline-block;
+}
+
+.ProseMirror h1,
+.ProseMirror h2,
+.ProseMirror h3,
+.ProseMirror h4,
+.ProseMirror h5,
+.ProseMirror h6 {
+  line-height: 1.3;
+  font-weight: 400;
+}
+
+.ProseMirror p {
+  font-size: 16px;
+}
+
+.ProseMirror h1 {
+  font-size: 24px;
+}
+
+.ProseMirror h2 {
+  font-size: 20px;
+}
+
+.ProseMirror h3 {
+  font-size: 18px;
+}
+
+.ProseMirror h4 {
+  font-size: 16px;
+}
+
+.ProseMirror h5 {
+  font-size: 14px;
+}
+
+.ProseMirror h6 {
+  font-size: 12px;
+}
+
+.ProseMirror code {
+  background-color: rgba(97, 97, 97, 0.1);
+  color: #616161;
+}
+
+.ProseMirror pre {
+  background: #0d0d0d;
+  color: #fff;
+  font-family: "JetBrainsMono", monospace;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+}
+
+.ProseMirror pre code {
+  color: inherit;
+  padding: 0;
+  background: none;
+  font-size: 0.8rem;
+}
+
+.ProseMirror img {
+  max-width: 100%;
+  height: auto;
+}
+
+.ProseMirror blockquote {
+  padding-left: 1rem;
+  border-left: 2px solid rgba(13, 13, 13, 0.1);
+}
+
+.ProseMirror hr {
+  border: none;
+  border-top: 2px solid rgba(13, 13, 13, 0.1);
+  margin: 2rem 0;
+}
+
+.ProseMirror table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+.ProseMirror table .column-resize-handle {
+  background-color: #c6c9ff;
+  bottom: -2px;
+  position: absolute;
+  right: -3px;
+  pointer-events: none;
+  top: 0;
+  width: 5px;
+}
+
+.ProseMirror th {
+  box-sizing: border-box;
+  min-width: 2em;
+  position: relative;
+  vertical-align: top;
+}
+
+.ProseMirror td {
+  box-sizing: border-box;
+  min-width: 2em;
+  position: relative;
+  vertical-align: top;
+  /* border: 1px solid #dce2f2; */
+}
+
+.ProseMirror table .selectedCell:after {
+  background: #c6c9ff55;
+  content: "";
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: 2;
+}
+
+.ProseMirror img .ProseMirror-selectednode {
+  outline: 2px solid #1c28e5;
+  outline-offset: 2px;
+}
+
+.image-resizer {
+  display: inline-flex;
+  position: relative;
+  flex-grow: 0;
+}
+.image-resizer .resize-trigger {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  color: #3259a5;
+  transform: translate(5px, 10px);
+}
+.image-resizer:hover .resize-trigger {
+  opacity: 1;
+}
+
+.ProseMirror .button {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background: var(--var-editor-button-bg);
+  color: var(--var-editor-button-text);
+  border-radius: 8px;
+  font-weight: bold;
+  padding-left: 16px;
+  padding-right: 16px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.ProseMirror .highlight {
+  padding: 16px;
+  background-color: var(--neutrals-greyBg);
+  border-radius: 8px;
+}
