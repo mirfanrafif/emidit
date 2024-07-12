@@ -158,3 +158,7 @@
   border: 1px solid var(--neutrals-greyTableBorder);
   padding: 16px;
 }
+
+.debuggerRow {
+  @apply grid grid-cols-2 gap-4;
+}

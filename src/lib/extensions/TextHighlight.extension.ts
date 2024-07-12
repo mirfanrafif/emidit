@@ -11,12 +11,14 @@ export interface TextHighlightOptions {
 
 declare module "@tiptap/core" {
   interface Commands<ReturnType> {
-    paragraph: {
+    highlight: {
       /**
        * Toggle a paragraph
        * @example editor.commands.toggleParagraph()
        */
-      setParagraph: () => ReturnType;
+      setTextHighlight: () => ReturnType;
+      unsetTextHighlight: () => ReturnType;
+      toggleTextHighlight: () => ReturnType;
     };
   }
 }
@@ -25,10 +27,8 @@ declare module "@tiptap/core" {
  * This extension allows you to create paragraphs.
  * @see https://www.tiptap.dev/api/nodes/paragraph
  */
-export const TextHighlightExtension = Node.create<TextHighlightOptions>({
-  name: "highlight",
-
-  priority: 1001,
+export const TextHighlightExtension = Node.create({
+  name: "text-highlight",
 
   addOptions() {
     return {
@@ -41,15 +41,15 @@ export const TextHighlightExtension = Node.create<TextHighlightOptions>({
   content: "inline*",
 
   parseHTML() {
-    return [{ tag: `p[data-type="highlight"]` }];
+    return [{ tag: `section[data-type="${this.name}"]` }];
   },
 
   renderHTML({ HTMLAttributes }) {
     return [
-      "p",
+      "section",
       mergeAttributes(this.options.HTMLAttributes, HTMLAttributes, {
-        "data-type": "highlight",
-        class: "highlight",
+        "data-type": this.name,
+        class: this.name,
       }),
       0,
     ];
@@ -57,17 +57,27 @@ export const TextHighlightExtension = Node.create<TextHighlightOptions>({
 
   addCommands() {
     return {
-      setParagraph:
+      setTextHighlight:
         () =>
         ({ commands }) => {
-          return commands.setNode(this.name);
+          return commands.setMark(this.name);
+        },
+      unsetTextHighlight:
+        () =>
+        ({ commands }) => {
+          return commands.unsetMark(this.name);
+        },
+      toggleTextHighlight:
+        () =>
+        ({ commands }) => {
+          return commands.toggleMark(this.name);
         },
     };
   },
 
   addKeyboardShortcuts() {
     return {
-      "Mod-Alt-2": () => this.editor.commands.setParagraph(),
+      "Mod-Alt-2": () => this.editor.commands.setTextHighlight(),
     };
   },
 });

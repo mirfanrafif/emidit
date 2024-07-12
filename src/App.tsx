@@ -15,11 +15,13 @@ function App() {
 <p><a href="https://google.com" data-type="button" class="button">Hello</a></p>
 <p></p>
 <h3>Guest Information</h3>
-<p></p>
-<p class="highlight" data-type="highlight">
+<section data-type="text-highlight" class="text-highlight">
   Jane Doe - jane.doe@gmail.com<br />4517 Washington Ave. Manchester, Kentucky
   39495
-</p>
+</section>
+<p></p>
+<p></p>
+
 `
   );
 

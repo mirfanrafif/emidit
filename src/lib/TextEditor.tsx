@@ -149,6 +149,14 @@ export default function TextEditor(props: TextEditorProps) {
     );
   }, [editor, editor?.getHTML()]);
 
+  const getJson = useMemo(() => {
+    if (!editor) {
+      return null;
+    }
+
+    return JSON.stringify(editor.getJSON(), null, 2);
+  }, [editor, editor?.getHTML()]);
+
   const getToolbar = () => (
     <div className={styles.toolbar}>
       <button
@@ -171,6 +179,16 @@ export default function TextEditor(props: TextEditorProps) {
         }}
       >
         h3
+      </button>
+      <button
+        onClick={() => {
+          editor?.chain().focus().toggleTextHighlight().run();
+        }}
+      >
+        Text Highlight
+      </button>
+      <button onClick={() => editor?.chain().focus().setParagraph().run()}>
+        paragraph
       </button>
       <button
         onClick={() => {
@@ -217,16 +235,10 @@ export default function TextEditor(props: TextEditorProps) {
           }}
         ></div>
 
-        <code className={styles.debugger}>{getPreview ?? "No editor"}</code>
-      </div>
-      <div className={styles.validationCounter}>
-        {props.error && <p>{props.error}</p>}
-        {props.maxLength && (
-          <div className={styles.counter}>
-            {editor?.storage.characterCount.characters().toString()}/
-            {props.maxLength}
-          </div>
-        )}
+        <div className={styles.debuggerRow}>
+          <code className={styles.debugger}>{getPreview ?? "No editor"}</code>
+          <code className={styles.debugger}>{getJson ?? "No editor"}</code>
+        </div>
       </div>
     </div>
   );
