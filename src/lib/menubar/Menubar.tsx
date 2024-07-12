@@ -4,6 +4,7 @@ import styles from "../TextEditor.module.css";
 import { Editor } from "@tiptap/react";
 import AddTableMenu from "./AddTableMenu";
 import AddButton from "./AddButton";
+import AddImage from "./AddImage";
 
 const Menubar = (props: { editor: Editor | null }) => {
   const { editor } = props;
@@ -94,6 +95,16 @@ const Menubar = (props: { editor: Editor | null }) => {
             text,
             href,
           });
+        }}
+      />
+
+      <AddImage
+        onAddImage={(href) => {
+          editor
+            ?.chain()
+            .focus()
+            .addImagePlaceholder({ src: href, width: 50, height: 50 })
+            .run();
         }}
       />
     </div>

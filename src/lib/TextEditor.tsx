@@ -26,7 +26,7 @@ import classNames from "classnames";
 import styles from "./TextEditor.module.css";
 import { TextHighlightExtension } from "./extensions/TextHighlight.extension";
 import { CodeBlock, dracula } from "react-code-blocks";
-import esthetic from "esthetic";
+
 import Menubar from "./menubar/Menubar";
 
 export type TextEditorProps = {
@@ -107,6 +107,7 @@ export default function TextEditor(props: TextEditorProps) {
       FontFamily,
       CustomTableExtension.configure({
         allowTableNodeSelection: true,
+        resizable: true,
       }),
       TableHeader,
       CustomTableCell,
@@ -127,12 +128,7 @@ export default function TextEditor(props: TextEditorProps) {
         isPreview: true,
       }),
       onUpdate: ({ editor }) => {
-        const content = generateHTML(
-          editor.getJSON(),
-          getExtensions({
-            isPreview: false,
-          })
-        );
+        const content = editor.getHTML();
         props.onChange?.(content);
       },
       content: props.value ?? props.defaultValue,
@@ -146,12 +142,7 @@ export default function TextEditor(props: TextEditorProps) {
       return null;
     }
 
-    return generateHTML(
-      editor.getJSON(),
-      getExtensions({
-        isPreview: false,
-      })
-    );
+    return generateHTML(editor.getJSON(), getExtensions({ isPreview: false }));
   }, [editor, editor?.getHTML()]);
 
   const getJson = useMemo(() => {

@@ -106,13 +106,20 @@ export const ImagePlaceholder = Node.create<ImagePlaceholderOptions>({
   },
 
   renderHTML({ node, HTMLAttributes }) {
+    console.log(
+      "src",
+      node.attrs.src,
+      this.options.isPreview && (node.attrs.src as string).match(/({{|\[)/gm)
+        ? true
+        : false
+    );
     return [
       "img",
       mergeAttributes(HTMLAttributes, {
         src:
           this.options.isPreview &&
-          (node.attrs.src as string).match(/({{|\[%)/gm)
-            ? "/img-placeholder.svg"
+          (node.attrs.src as string).match(/({{|\[)/gm)
+            ? "https://placehold.co/600x400"
             : node.attrs.src,
         style: this.options.style,
       }),
