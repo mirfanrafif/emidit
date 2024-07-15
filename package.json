@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "tsc --p ./tsconfig.build.json && vite build",
+    "build:lib": "tsc --p ./tsconfig.build.json && vite build --config vite.config.build.ts",
+    "build": "vite build",
     "fix:format": "prettier --write ."
   },
   "dependencies": {
