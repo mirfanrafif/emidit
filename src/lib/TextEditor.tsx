@@ -119,20 +119,17 @@ export default function TextEditor(props: TextEditorProps) {
     [props.maxLength, buttonDisplayExtension, buttonSaveExtension],
   );
 
-  const editor = useEditor(
-    {
-      extensions: getExtensions({
-        isPreview: true,
-      }),
-      onUpdate: ({ editor }) => {
-        const content = editor.getHTML();
-        props.onChange?.(content);
-      },
-      content: props.defaultValue,
-      editable: !props.readonly,
+  const editor = useEditor({
+    extensions: getExtensions({
+      isPreview: true,
+    }),
+    onBlur: ({ editor }) => {
+      const content = editor.getHTML();
+      props.onChange?.(content);
     },
-    [props.defaultValue, props.readonly],
-  );
+    content: props.defaultValue,
+    editable: !props.readonly,
+  });
 
   const getPreview = useMemo(() => {
     if (!editor) {
@@ -140,7 +137,7 @@ export default function TextEditor(props: TextEditorProps) {
     }
 
     return generateHTML(editor.getJSON(), getExtensions({ isPreview: false }));
-  }, [editor, editor?.getHTML()]);
+  }, [editor, editor?.getJSON(), getExtensions]);
 
   const getJson = useMemo(() => {
     if (!editor) {
@@ -148,7 +145,7 @@ export default function TextEditor(props: TextEditorProps) {
     }
 
     return JSON.stringify(editor.getJSON(), null, 2);
-  }, [editor, editor?.getHTML()]);
+  }, [editor, editor?.getJSON()]);
 
   return (
     <div>
