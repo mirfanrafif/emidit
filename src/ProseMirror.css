@@ -1,7 +1,7 @@
 .ProseMirror {
   position: relative;
   outline: none;
-  max-width: 768px;
+  max-width: 640px;
   padding: 0 4rem;
   box-sizing: border-box;
   margin: 0 auto;
