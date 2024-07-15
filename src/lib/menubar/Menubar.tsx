@@ -13,8 +13,8 @@ const Menubar = (props: { editor: Editor | null }) => {
   return (
     <div className={styles.toolbar}>
       <Headings
-        onSelectHeading={(level) => {
-          editor?.chain().focus().setHeading({ level }).run();
+        onSelectHeading={(_, size) => {
+          editor?.chain().focus().setFontSize(size).run();
         }}
       />
       <button

@@ -5,7 +5,7 @@ import styles from './Menubar.module.css';
 // 24, 20, 18, 16, 14, 12
 
 const headingLevels: {
-  level: 1 | 2 | 3 | 4 | 5 | 6;
+  level: number;
   size: number;
 }[] = [
   { level: 1, size: 24 },
@@ -17,7 +17,7 @@ const headingLevels: {
 ];
 
 const Headings = (props: {
-  onSelectHeading: (level: 1 | 2 | 3 | 4 | 5 | 6) => void;
+  onSelectHeading: (level: number, size: number) => void;
 }) => {
   const [showPopup, setShowPopup] = React.useState(false);
 
@@ -36,7 +36,7 @@ const Headings = (props: {
             <button
               key={heading.level}
               onClick={() => {
-                props.onSelectHeading(heading.level);
+                props.onSelectHeading(heading.level, heading.size);
                 setShowPopup(false);
               }}
             >
