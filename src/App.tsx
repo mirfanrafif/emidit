@@ -4,146 +4,98 @@ import TextEditor from "./lib/TextEditor";
 
 function App() {
   const [value, setValue] = useState(
-    ` <p style="text-align: center">
+    ` <p>
       <img
         data-type="image-placeholder"
-        src="{{image}}"
+        src="{{delta_logo}}"
         style="
-          width: 235px;
-          height: 106px;
+          width: 174px;
+          height: 80px;
           object-fit: cover;
           border-radius: 8px;
         "
       />
     </p>
-    <p></p>
-    <h1>You have received a new booking request (Booking ID: 120938293)</h1>
+    <h1><strong>Partner with Us!</strong></h1>
     <p></p>
     <p>Dear Yukisawa Ski School,</p>
     <p>
-      You have received a new booking request from Jade Hotel Group. Booking ID:
-      120938293
+      We are pleased to inform you that <strong>Jade Hotel Group</strong> has
+      invited you to connect as a <strong>trusted partner</strong>.
+    </p>
+    <p>
+      By accepting this invitation, you will gain the ability to offer your
+      services directly through their booking system, along with setting your
+      partnership policies such as commission rates and other terms.
+    </p>
+    <p>
+      To accept this invitation and join <strong>Jade Hotel Group</strong> as a
+      partner, please click the button below:
     </p>
     <p></p>
     <p>
-      <a data-type="button" class="button" href="">Review booking request</a>
-    </p>
-    <p></p>
-    <hr />
-    <h3>Guest Information</h3>
-    <section data-type="text-highlight" class="text-highlight">
-      Jane Doe - jane.doe@gmail.com<br />4517 Washington Ave. Manchester,
-      Kentucky 39495
-    </section>
-    <p></p>
-    <h3>Notes</h3>
-    <section data-type="text-highlight" class="text-highlight">-</section>
-    <p></p>
-    <h3>Booked Experiences</h3>
-    <table style="width: 632px">
-      <colgroup>
-        <col style="width: 58px" />
-        <col style="width: 281px" />
-        <col style="width: 109px" />
-        <col style="width: 81px" />
-        <col style="width: 103px" />
-      </colgroup>
-      <tbody>
-        <tr>
-          <th colspan="1" rowspan="1" colwidth="58">
-            <h5 style="text-align: left"><strong>Date</strong></h5>
-          </th>
-          <th colspan="1" rowspan="1" colwidth="281">
-            <h5 style="text-align: left"><strong>Product Name</strong></h5>
-          </th>
-          <th colspan="1" rowspan="1" colwidth="109">
-            <h5 style="text-align: right"><strong>Rate</strong></h5>
-          </th>
-          <th colspan="1" rowspan="1" colwidth="81">
-            <h5 style="text-align: right"><strong>Qty</strong></h5>
-          </th>
-          <th colspan="1" rowspan="1" colwidth="103">
-            <h5 style="text-align: right"><strong>Total</strong></h5>
-          </th>
-        </tr>
-        <tr>
-          <td colspan="1" rowspan="1" colwidth="58"><h5>2024/01/01</h5></td>
-          <td colspan="1" rowspan="1" colwidth="281">
-            <h5>Ski Full Day in Goryu<br />5 People</h5>
-          </td>
-          <td colspan="1" rowspan="1" colwidth="109">
-            <h5 style="text-align: right">¥ 40.000</h5>
-          </td>
-          <td colspan="1" rowspan="1" colwidth="81">
-            <h5 style="text-align: right">01</h5>
-          </td>
-          <td colspan="1" rowspan="1" colwidth="103">
-            <h5 style="text-align: right">¥ 40.000</h5>
-          </td>
-        </tr>
-        <tr>
-          <td colspan="1" rowspan="1" colwidth="58"><h5>2024/01/02</h5></td>
-          <td colspan="1" rowspan="1" colwidth="281">
-            <h5>Ski Full Day in Goryu<br />6 People</h5>
-          </td>
-          <td colspan="1" rowspan="1" colwidth="109">
-            <h5 style="text-align: right">¥ 40.000</h5>
-          </td>
-          <td colspan="1" rowspan="1" colwidth="81">
-            <h5 style="text-align: right">02</h5>
-          </td>
-          <td colspan="1" rowspan="1" colwidth="103">
-            <h5 style="text-align: right">¥ 80.000</h5>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <p></p>
-    <p><span style="color: rgb(153, 153, 153)">Note</span></p>
-    <ul>
-      <li>
-        <p>
-          <span style="color: rgb(153, 153, 153)"
-            >The invoice and payment schedule will be sent to your customer once
-            the booking is confirmed.</span
-          >
-        </p>
-      </li>
-      <li>
-        <p>
-          <span style="color: rgb(153, 153, 153)"
-            >If you have any questions, you can reach out to Jade Hotel Group at
-            info@jadehotelgroup.com</span
-          >
-        </p>
-      </li>
-    </ul>
-    <hr />
-    <p>
-      <span style="color: rgb(153, 153, 153)"
-        >This is a system generated message. Do not reply.</span
+      <a href="{{invitation_url}}" data-type="button" class="button"
+        >Accept Invitation</a
       >
+    </p>
+    <hr />
+    <p>Benefits of Partnering with <strong>Jade Hotel Group</strong>:</p>
+    <ol>
+      <li>
+        <p>
+          <strong>Increased Bookings</strong>: Reach more customers through
+          their platform.
+        </p>
+      </li>
+      <li>
+        <p>
+          <strong>Flexible Terms</strong>: Set your own partnership terms,
+          including commissions and special rates.
+        </p>
+      </li>
+      <li>
+        <p>
+          <strong>Mutual Growth</strong>: Collaborate to enhance guest
+          experiences and grow your business.
+        </p>
+      </li>
+    </ol>
+    <p></p>
+    <p>
+      We are excited to support you in creating memorable experiences for your
+      customers.
     </p>
     <p></p>
     <p>
       <img
         data-type="image-placeholder"
-        src="{{delta_logo_url}}"
+        src="{{delta_logo}}"
         style="
-          width: 207px;
-          height: 93px;
+          width: 182px;
+          height: 96px;
           object-fit: cover;
           border-radius: 8px;
         "
       />
     </p>
+    <h5>
+      <span style="color: #999999"
+        >Copyright © 2024 Delta HQ.<br />The All-in-One Platform for Smarter
+        Property and Experience Management</span
+      >
+    </h5>
 `
   );
 
   return (
     <div className="App">
       <div className="grid">
-        <TextEditor value={value} />
+        <TextEditor
+          defaultValue={value}
+          onChange={(newValue) => {
+            setValue(newValue);
+          }}
+        />
       </div>
     </div>
   );

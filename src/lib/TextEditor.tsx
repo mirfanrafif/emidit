@@ -131,10 +131,10 @@ export default function TextEditor(props: TextEditorProps) {
         const content = editor.getHTML();
         props.onChange?.(content);
       },
-      content: props.value ?? props.defaultValue,
+      content: props.defaultValue,
       editable: !props.readonly,
     },
-    [props.value, props.defaultValue, props.readonly]
+    [props.defaultValue, props.readonly]
   );
 
   const getPreview = useMemo(() => {
