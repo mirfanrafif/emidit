@@ -3,12 +3,22 @@
 
 .App__grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 16px;
+}
+
+.App__grid > div {
+  border-radius: 8px;
+  border: 1px solid var(--neutrals-greyTableBorder);
+  padding: 16px;
 }
 
 .App__previewJSON {
   overflow: auto;
   max-height: 600px;
   white-space: pre-wrap;
+}
+
+.App {
+  padding: 16px;
 }

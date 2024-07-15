@@ -109,11 +109,7 @@ export const ImagePlaceholder = Node.create<ImagePlaceholderOptions>({
     return [
       'img',
       mergeAttributes(HTMLAttributes, {
-        src:
-          this.options.isPreview &&
-          (node.attrs.src as string).match(/({{|\[)/gm)
-            ? 'https://placehold.co/600x400?text=Test+Image'
-            : node.attrs.src,
+        src: node.attrs.src,
         style: this.options.style,
       }),
     ];
