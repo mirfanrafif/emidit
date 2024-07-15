@@ -57,30 +57,6 @@
   font-size: 16px;
 }
 
-.ProseMirror h1 {
-  font-size: 24px;
-}
-
-.ProseMirror h2 {
-  font-size: 20px;
-}
-
-.ProseMirror h3 {
-  font-size: 18px;
-}
-
-.ProseMirror h4 {
-  font-size: 16px;
-}
-
-.ProseMirror h5 {
-  font-size: 14px;
-}
-
-.ProseMirror h6 {
-  font-size: 12px;
-}
-
 .ProseMirror code {
   background-color: rgba(97, 97, 97, 0.1);
   color: #616161;

@@ -53,7 +53,7 @@ export const FontSizeExtension = Mark.create({
       setFontSize:
         (fontSize: number) =>
         ({ chain }) => {
-          if (fontSize === 14) {
+          if (fontSize === 16) {
             return chain()
               .setMark('textStyle', { fontSize: null })
               .removeEmptyTextStyle()

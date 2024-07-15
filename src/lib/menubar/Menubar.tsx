@@ -13,13 +13,14 @@ const Menubar = (props: { editor: Editor | null }) => {
   return (
     <div className={styles.toolbar}>
       <Headings
-        onSelectHeading={(_, size) => {
+        onSelectHeading={(size) => {
           editor?.chain().focus().setFontSize(size).run();
         }}
+        currentFontSize={editor?.getAttributes('textStyle').fontSize}
       />
       <button
         onClick={() => {
-          editor?.chain().focus().toggleTextHighlight().run();
+          editor?.chain().focus().setTextHighlight('text-highlight').run();
         }}
       >
         Text Highlight

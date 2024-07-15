@@ -4,20 +4,11 @@ import styles from './Menubar.module.css';
 
 // 24, 20, 18, 16, 14, 12
 
-const headingLevels: {
-  level: number;
-  size: number;
-}[] = [
-  { level: 1, size: 24 },
-  { level: 2, size: 20 },
-  { level: 3, size: 18 },
-  { level: 4, size: 16 },
-  { level: 5, size: 14 },
-  { level: 6, size: 12 },
-];
+const fontSizeList = [24, 20, 18, 16, 14, 12];
 
 const Headings = (props: {
-  onSelectHeading: (level: number, size: number) => void;
+  currentFontSize: number;
+  onSelectHeading: (size: number) => void;
 }) => {
   const [showPopup, setShowPopup] = React.useState(false);
 
@@ -27,20 +18,20 @@ const Headings = (props: {
         onClick={() => setShowPopup(!showPopup)}
         className={styles.addTableButton}
       >
-        Headings
+        {props.currentFontSize ?? '16'}
       </button>
 
       {showPopup && (
         <div className={styles.popup}>
-          {headingLevels.map((heading) => (
+          {fontSizeList.map((fontSize) => (
             <button
-              key={heading.level}
+              key={fontSize}
               onClick={() => {
-                props.onSelectHeading(heading.level, heading.size);
+                props.onSelectHeading(fontSize);
                 setShowPopup(false);
               }}
             >
-              Heading {heading.level} ({heading.size}px)
+              {fontSize}
             </button>
           ))}
         </div>

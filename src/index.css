@@ -39,7 +39,14 @@ button {
 }
 
 button:hover {
-  background-color: var(--neutrals-grey);
+  background-color: var(--neutrals-greyTableBorder);
+}
+
+input {
+  padding: 8px;
+  border: 1px solid var(--neutrals-greyDisabled);
+  border-radius: 8px;
+  font-size: 16px;
 }
 
 /* ProseMirror for Tiptap (Rich Text Editor) */

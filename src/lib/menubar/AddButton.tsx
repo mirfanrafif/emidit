@@ -46,7 +46,7 @@ const AddButton = (props: {
               setShowPopup(false);
             }}
           >
-            Add Table
+            Add Button
           </button>
         </div>
       )}
