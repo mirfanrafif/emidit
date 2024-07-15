@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import TextEditor from './lib/TextEditor';
+import classNames from 'classnames';
 
 function App() {
   const [value, setValue] = useState(
@@ -87,10 +88,31 @@ function App() {
 `,
   );
 
+  const [json, setJson] = useState('');
+
   return (
     <div className="App">
-      <div className="grid">
-        <TextEditor defaultValue={value} />
+      <div className="App__grid">
+        <TextEditor
+          defaultValue={value}
+          onChange={(newData) => {
+            setValue(newData);
+          }}
+          onChangeJson={(newJson) => {
+            setJson(newJson);
+          }}
+        />
+
+        <div>
+          <div
+            className={classNames('ProseMirror', 'App__preview')}
+            dangerouslySetInnerHTML={{ __html: value }}
+          ></div>
+        </div>
+
+        <div>
+          <pre className="App__previewJSON">{json}</pre>
+        </div>
       </div>
     </div>
   );

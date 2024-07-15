@@ -1,0 +1,14 @@
+.App__preview {
+}
+
+.App__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+}
+
+.App__previewJSON {
+  overflow: auto;
+  max-height: 600px;
+  white-space: pre-wrap;
+}

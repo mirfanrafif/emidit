@@ -32,7 +32,8 @@ import Menubar from './menubar/Menubar';
 export type TextEditorProps = {
   defaultValue?: string;
   value?: string;
-  onChange?: (value: string) => void;
+  onChange?: (data: string) => void;
+  onChangeJson?: (data: string) => void;
   label?: string;
   leading?: React.ReactNode;
   trailing?: React.ReactNode;
@@ -124,28 +125,16 @@ export default function TextEditor(props: TextEditorProps) {
       isPreview: true,
     }),
     onBlur: ({ editor }) => {
-      const content = editor.getHTML();
+      const content = generateHTML(
+        editor.getJSON(),
+        getExtensions({ isPreview: false }),
+      );
       props.onChange?.(content);
+      props.onChangeJson?.(JSON.stringify(editor.getJSON(), null, 2));
     },
     content: props.defaultValue,
     editable: !props.readonly,
   });
-
-  const getPreview = useMemo(() => {
-    if (!editor) {
-      return null;
-    }
-
-    return generateHTML(editor.getJSON(), getExtensions({ isPreview: false }));
-  }, [editor, editor?.getJSON(), getExtensions]);
-
-  const getJson = useMemo(() => {
-    if (!editor) {
-      return null;
-    }
-
-    return JSON.stringify(editor.getJSON(), null, 2);
-  }, [editor, editor?.getJSON()]);
 
   return (
     <div>
@@ -154,42 +143,20 @@ export default function TextEditor(props: TextEditorProps) {
           {props.label}
         </div>
       )}
-      <div className={styles.preview}>
+      <div
+        className={classNames(styles.container, props.className)}
+        data-testid={`${props.pageName}_contentsTextEditor`}
+      >
+        <Menubar editor={editor} />
         <div
-          className={classNames(styles.container, props.className)}
-          data-testid={`${props.pageName}_contentsTextEditor`}
+          className={classNames(styles.editor, {
+            [styles.smallerPaddingEditor]: props.smallerEditor,
+          })}
         >
-          <Menubar editor={editor} />
-          <div
-            className={classNames(styles.editor, {
-              [styles.smallerPaddingEditor]: props.smallerEditor,
-            })}
-          >
-            <EditorContent
-              editor={editor}
-              data-testid={`${props.pageName}_contentsTextEditorContent`}
-            />
-          </div>
-        </div>
-
-        <div
-          className="ProseMirror"
-          dangerouslySetInnerHTML={{
-            __html: getPreview ?? 'No editor',
-          }}
-        ></div>
-
-        <div className={styles.debuggerRow}>
-          <CodeBlock
-            language="html"
-            text={getPreview ?? 'No Editor'}
-            theme={dracula}
-            codeBlockStyle={{
-              fontFamily: 'monospace',
-            }}
+          <EditorContent
+            editor={editor}
+            data-testid={`${props.pageName}_contentsTextEditorContent`}
           />
-          <code className={styles.debugger}>{getPreview ?? 'No editor'}</code>
-          <code className={styles.debugger}>{getJson ?? 'No editor'}</code>
         </div>
       </div>
     </div>

@@ -2,7 +2,7 @@
   position: relative;
   outline: none;
   max-width: 640px;
-  padding: 0 4rem;
+  padding: 1rem 4rem;
   box-sizing: border-box;
   margin: 0 auto;
 }
@@ -220,6 +220,6 @@
 
 @media (max-width: 768px) {
   .ProseMirror {
-    padding: 0 1rem;
+    padding: 1rem 1rem;
   }
 }
