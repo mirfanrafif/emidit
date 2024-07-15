@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import styles from "./Menubar.module.css";
+import styles from './Menubar.module.css';
 
 const AddButton = (props: {
   onAddButton: (text: string, href: string) => void;
@@ -8,8 +8,8 @@ const AddButton = (props: {
   const [showPopup, setShowPopup] = React.useState(false);
 
   const [tableData, setTableData] = React.useState({
-    text: "",
-    href: "",
+    text: '',
+    href: '',
   });
 
   return (

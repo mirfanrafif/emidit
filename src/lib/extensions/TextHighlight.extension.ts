@@ -1,4 +1,4 @@
-import { mergeAttributes, Node } from "@tiptap/core";
+import { mergeAttributes, Node } from '@tiptap/core';
 
 export interface TextHighlightOptions {
   /**
@@ -9,7 +9,7 @@ export interface TextHighlightOptions {
   HTMLAttributes: Record<string, any>;
 }
 
-declare module "@tiptap/core" {
+declare module '@tiptap/core' {
   interface Commands<ReturnType> {
     highlight: {
       /**
@@ -28,7 +28,7 @@ declare module "@tiptap/core" {
  * @see https://www.tiptap.dev/api/nodes/paragraph
  */
 export const TextHighlightExtension = Node.create({
-  name: "text-highlight",
+  name: 'text-highlight',
 
   addOptions() {
     return {
@@ -36,9 +36,9 @@ export const TextHighlightExtension = Node.create({
     };
   },
 
-  group: "block",
+  group: 'block',
 
-  content: "inline*",
+  content: 'inline*',
 
   parseHTML() {
     return [{ tag: `section[data-type="${this.name}"]` }];
@@ -46,9 +46,9 @@ export const TextHighlightExtension = Node.create({
 
   renderHTML({ HTMLAttributes }) {
     return [
-      "section",
+      'section',
       mergeAttributes(this.options.HTMLAttributes, HTMLAttributes, {
-        "data-type": this.name,
+        'data-type': this.name,
         class: this.name,
       }),
       0,
@@ -60,24 +60,24 @@ export const TextHighlightExtension = Node.create({
       setTextHighlight:
         () =>
         ({ commands }) => {
-          return commands.setNode("text-highlight");
+          return commands.setNode('text-highlight');
         },
       unsetTextHighlight:
         () =>
         ({ commands }) => {
-          return commands.setNode("paragraph");
+          return commands.setNode('paragraph');
         },
       toggleTextHighlight:
         () =>
         ({ commands }) => {
-          return commands.toggleNode("text-highlight", "paragraph");
+          return commands.toggleNode('text-highlight', 'paragraph');
         },
     };
   },
 
   addKeyboardShortcuts() {
     return {
-      "Mod-Alt-2": () => this.editor.commands.setTextHighlight(),
+      'Mod-Alt-2': () => this.editor.commands.setTextHighlight(),
     };
   },
 });

@@ -23,7 +23,7 @@
 .editor > div {
   margin: 0;
   margin-top: 16px;
-  font-family: "Noto Sans", sans-serif;
+  font-family: 'Noto Sans', sans-serif;
   font-style: normal;
   color: #2c2c2c;
   font-weight: 400;
@@ -121,19 +121,19 @@
 }
 
 .fontSerif {
-  font-family: "Noto Serif", serif;
+  font-family: 'Noto Serif', serif;
 }
 
 .fontSans {
-  font-family: "Noto Sans", sans-serif;
+  font-family: 'Noto Sans', sans-serif;
 }
 
 .fontSerifJP {
-  font-family: "Noto Serif JP", serif;
+  font-family: 'Noto Serif JP', serif;
 }
 
 .fontSansJP {
-  font-family: "Noto Sans JP", sans-serif;
+  font-family: 'Noto Sans JP', sans-serif;
 }
 
 .card {

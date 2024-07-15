@@ -1,14 +1,14 @@
-import React, { useCallback, useMemo } from "react";
+import React, { useCallback, useMemo } from 'react';
 
-import CharacterCount from "@tiptap/extension-character-count";
-import Color from "@tiptap/extension-color";
-import TextAlign from "@tiptap/extension-text-align";
-import TextStyle from "@tiptap/extension-text-style";
-import Underline from "@tiptap/extension-underline";
-import FontFamily from "@tiptap/extension-font-family";
-import TableHeader from "@tiptap/extension-table-header";
-import { EditorContent, generateHTML, useEditor } from "@tiptap/react";
-import StarterKit from "@tiptap/starter-kit";
+import CharacterCount from '@tiptap/extension-character-count';
+import Color from '@tiptap/extension-color';
+import TextAlign from '@tiptap/extension-text-align';
+import TextStyle from '@tiptap/extension-text-style';
+import Underline from '@tiptap/extension-underline';
+import FontFamily from '@tiptap/extension-font-family';
+import TableHeader from '@tiptap/extension-table-header';
+import { EditorContent, generateHTML, useEditor } from '@tiptap/react';
+import StarterKit from '@tiptap/starter-kit';
 
 import {
   ButtonExtension,
@@ -16,18 +16,18 @@ import {
   CustomTableRow,
   EmailTemplateExtension,
   FontSizeExtension,
-} from "./extensions";
+} from './extensions';
 
-import { ImagePlaceholder } from "./extensions/Image.extension";
-import { CardExtension } from "./extensions/Card.extension";
-import { CustomTableExtension } from "./extensions/CustomTable.extension";
-import classNames from "classnames";
+import { ImagePlaceholder } from './extensions/Image.extension';
+import { CardExtension } from './extensions/Card.extension';
+import { CustomTableExtension } from './extensions/CustomTable.extension';
+import classNames from 'classnames';
 
-import styles from "./TextEditor.module.css";
-import { TextHighlightExtension } from "./extensions/TextHighlight.extension";
-import { CodeBlock, dracula } from "react-code-blocks";
+import styles from './TextEditor.module.css';
+import { TextHighlightExtension } from './extensions/TextHighlight.extension';
+import { CodeBlock, dracula } from 'react-code-blocks';
 
-import Menubar from "./menubar/Menubar";
+import Menubar from './menubar/Menubar';
 
 export type TextEditorProps = {
   defaultValue?: string;
@@ -55,22 +55,22 @@ export default function TextEditor(props: TextEditorProps) {
         },
       }),
     ],
-    []
+    [],
   );
 
   const buttonSaveExtension = useMemo(
     () => [
       ButtonExtension.configure({
         HTMLAttributes: {
-          class: "button",
+          class: 'button',
         },
         renderHref: true,
       }),
       CardExtension.configure({
-        class: "custom_table_wrapper",
+        class: 'custom_table_wrapper',
       }),
     ],
-    []
+    [],
   );
 
   const getExtensions = useCallback(
@@ -94,9 +94,9 @@ export default function TextEditor(props: TextEditorProps) {
       }),
       Underline.configure(),
       TextAlign.configure({
-        types: ["heading", "paragraph"],
-        alignments: ["left", "center", "right", "justify"],
-        defaultAlignment: "justify",
+        types: ['heading', 'paragraph'],
+        alignments: ['left', 'center', 'right', 'justify'],
+        defaultAlignment: 'justify',
       }),
       FontSizeExtension,
       EmailTemplateExtension,
@@ -111,12 +111,12 @@ export default function TextEditor(props: TextEditorProps) {
       CustomTableRow,
       ImagePlaceholder.configure({
         isPreview: params.isPreview,
-        style: "object-fit: cover; border-radius: 8px;",
+        style: 'object-fit: cover; border-radius: 8px;',
         inline: true,
       }),
       TextHighlightExtension,
     ],
-    [props.maxLength, buttonDisplayExtension, buttonSaveExtension]
+    [props.maxLength, buttonDisplayExtension, buttonSaveExtension],
   );
 
   const editor = useEditor(
@@ -131,7 +131,7 @@ export default function TextEditor(props: TextEditorProps) {
       content: props.defaultValue,
       editable: !props.readonly,
     },
-    [props.defaultValue, props.readonly]
+    [props.defaultValue, props.readonly],
   );
 
   const getPreview = useMemo(() => {
@@ -178,21 +178,21 @@ export default function TextEditor(props: TextEditorProps) {
         <div
           className="ProseMirror"
           dangerouslySetInnerHTML={{
-            __html: getPreview ?? "No editor",
+            __html: getPreview ?? 'No editor',
           }}
         ></div>
 
         <div className={styles.debuggerRow}>
           <CodeBlock
             language="html"
-            text={getPreview ?? "No Editor"}
+            text={getPreview ?? 'No Editor'}
             theme={dracula}
             codeBlockStyle={{
-              fontFamily: "monospace",
+              fontFamily: 'monospace',
             }}
           />
-          <code className={styles.debugger}>{getPreview ?? "No editor"}</code>
-          <code className={styles.debugger}>{getJson ?? "No editor"}</code>
+          <code className={styles.debugger}>{getPreview ?? 'No editor'}</code>
+          <code className={styles.debugger}>{getJson ?? 'No editor'}</code>
         </div>
       </div>
     </div>

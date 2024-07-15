@@ -1,7 +1,7 @@
-import { mergeAttributes, Node, nodeInputRule } from "@tiptap/core";
-import { ReactNodeViewRenderer } from "@tiptap/react";
-import ImageResizeComponent from "./ImageResizeComponent";
-import { ReactNode } from "react";
+import { mergeAttributes, Node, nodeInputRule } from '@tiptap/core';
+import { ReactNodeViewRenderer } from '@tiptap/react';
+import ImageResizeComponent from './ImageResizeComponent';
+import { ReactNode } from 'react';
 
 export interface ImagePlaceholderOptions {
   inline: boolean;
@@ -11,7 +11,7 @@ export interface ImagePlaceholderOptions {
   resizeIcon: ReactNode;
 }
 
-declare module "@tiptap/core" {
+declare module '@tiptap/core' {
   interface Commands<ReturnType> {
     image: {
       /**
@@ -32,14 +32,14 @@ export const inputRegex =
   /(?:^|\s)(!\[(.+|:?)]\((\S+)(?:(?:\s+)["'](\S+)["'])?\))$/;
 
 export const ImagePlaceholder = Node.create<ImagePlaceholderOptions>({
-  name: "image-placeholder",
+  name: 'image-placeholder',
 
   addOptions() {
     return {
       inline: false,
       allowBase64: false,
       isPreview: false,
-      style: "object-fit: cover; border-radius: 8px;",
+      style: 'object-fit: cover; border-radius: 8px;',
       resizeIcon: <>⊙</>,
     };
   },
@@ -49,14 +49,14 @@ export const ImagePlaceholder = Node.create<ImagePlaceholderOptions>({
   },
 
   group() {
-    return this.options.inline ? "inline" : "block";
+    return this.options.inline ? 'inline' : 'block';
   },
 
   draggable: true,
 
   addAttributes() {
     return {
-      "data-type": {
+      'data-type': {
         default: this.name,
       },
       src: {
@@ -70,7 +70,7 @@ export const ImagePlaceholder = Node.create<ImagePlaceholderOptions>({
       },
       width: {
         default: null,
-        parseHTML: (element) => element.style.width.replace("px", ""),
+        parseHTML: (element) => element.style.width.replace('px', ''),
         renderHTML: (attributes) => {
           if (!attributes.width) {
             return {};
@@ -83,7 +83,7 @@ export const ImagePlaceholder = Node.create<ImagePlaceholderOptions>({
       },
       height: {
         default: null,
-        parseHTML: (element) => element.style.height.replace("px", ""),
+        parseHTML: (element) => element.style.height.replace('px', ''),
         renderHTML: (attributes) => {
           if (!attributes.height) {
             return {};
@@ -107,12 +107,12 @@ export const ImagePlaceholder = Node.create<ImagePlaceholderOptions>({
 
   renderHTML({ node, HTMLAttributes }) {
     return [
-      "img",
+      'img',
       mergeAttributes(HTMLAttributes, {
         src:
           this.options.isPreview &&
           (node.attrs.src as string).match(/({{|\[)/gm)
-            ? "https://placehold.co/600x400?text=Test+Image"
+            ? 'https://placehold.co/600x400?text=Test+Image'
             : node.attrs.src,
         style: this.options.style,
       }),

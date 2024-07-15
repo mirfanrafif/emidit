@@ -1,4 +1,4 @@
-import { Node, mergeAttributes } from "@tiptap/react";
+import { Node, mergeAttributes } from '@tiptap/react';
 
 type ButtonOptions = {
   HTMLAttributes: Record<string, unknown>;
@@ -10,7 +10,7 @@ type ButtonAttributes = {
   href: string;
 };
 
-declare module "@tiptap/core" {
+declare module '@tiptap/core' {
   interface Commands<ReturnType> {
     button: {
       addButton: (attributes: ButtonAttributes) => ReturnType;
@@ -19,11 +19,11 @@ declare module "@tiptap/core" {
 }
 
 export const ButtonExtension = Node.create<ButtonOptions>({
-  name: "button",
+  name: 'button',
 
-  group: "inline",
+  group: 'inline',
 
-  content: "inline*",
+  content: 'inline*',
 
   atom: true,
 
@@ -41,15 +41,15 @@ export const ButtonExtension = Node.create<ButtonOptions>({
   addAttributes() {
     return {
       text: {
-        default: "",
+        default: '',
         parseHTML: (element) => element.innerText,
         renderHTML: () => {
           return {};
         },
       },
       href: {
-        default: "",
-        parseHTML: (element) => element.getAttribute("href"),
+        default: '',
+        parseHTML: (element) => element.getAttribute('href'),
         renderHTML: (attributes) => {
           if (!attributes.href) {
             return {};
@@ -68,7 +68,7 @@ export const ButtonExtension = Node.create<ButtonOptions>({
       addButton:
         (attributes: ButtonAttributes) =>
         ({ chain }) => {
-          console.log("attributes", attributes);
+          console.log('attributes', attributes);
           return chain()
             .insertContent([
               {
@@ -91,9 +91,9 @@ export const ButtonExtension = Node.create<ButtonOptions>({
 
   renderHTML({ HTMLAttributes, node }) {
     return [
-      "a",
+      'a',
       mergeAttributes(HTMLAttributes, {
-        "data-type": this.name,
+        'data-type': this.name,
         class: this.options.HTMLAttributes.class,
         href: this.options.renderHref ? node.attrs.href : null,
       }),

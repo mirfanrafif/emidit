@@ -1,6 +1,6 @@
-import TableCell from "@tiptap/extension-table-cell";
+import TableCell from '@tiptap/extension-table-cell';
 
-declare module "@tiptap/core" {
+declare module '@tiptap/core' {
   interface Commands<ReturnType> {
     tableCell: {
       /**
@@ -19,7 +19,7 @@ export const CustomTableCell = TableCell.extend({
       ...this.parent?.(),
       class: {
         default: null,
-        parseHTML: (element) => element.getAttribute("class"),
+        parseHTML: (element) => element.getAttribute('class'),
         renderHTML: (attributes) => {
           return {
             class: attributes.class,
@@ -32,13 +32,13 @@ export const CustomTableCell = TableCell.extend({
   parseHTML() {
     return [
       {
-        tag: "td",
+        tag: 'td',
       },
     ];
   },
 
   renderHTML({ HTMLAttributes }) {
-    return ["td", HTMLAttributes, 0];
+    return ['td', HTMLAttributes, 0];
   },
 
   addCommands() {
@@ -46,14 +46,14 @@ export const CustomTableCell = TableCell.extend({
       setClass:
         (className) =>
         ({ commands }) => {
-          return commands.updateAttributes("tableCell", {
+          return commands.updateAttributes('tableCell', {
             class: className,
           });
         },
       unsetClass:
         () =>
         ({ commands }) => {
-          return commands.updateAttributes("tableCell", {
+          return commands.updateAttributes('tableCell', {
             class: null,
           });
         },

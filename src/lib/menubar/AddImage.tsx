@@ -1,12 +1,12 @@
-import React from "react";
+import React from 'react';
 
-import styles from "./Menubar.module.css";
+import styles from './Menubar.module.css';
 
 const AddImage = (props: { onAddImage: (href: string) => void }) => {
   const [showPopup, setShowPopup] = React.useState(false);
 
   const [tableData, setTableData] = React.useState({
-    href: "",
+    href: '',
   });
 
   return (

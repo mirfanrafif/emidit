@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 
-import styles from "../TextEditor.module.css";
-import { Editor } from "@tiptap/react";
-import AddTableMenu from "./AddTableMenu";
-import AddButton from "./AddButton";
-import AddImage from "./AddImage";
-import SetColorPopup from "./SetColor";
+import styles from '../TextEditor.module.css';
+import { Editor } from '@tiptap/react';
+import AddTableMenu from './AddTableMenu';
+import AddButton from './AddButton';
+import AddImage from './AddImage';
+import SetColorPopup from './SetColor';
 
 const Menubar = (props: { editor: Editor | null }) => {
   const { editor } = props;
@@ -86,7 +86,7 @@ const Menubar = (props: { editor: Editor | null }) => {
 
       <button
         onClick={() => {
-          editor?.chain().focus().setTextAlign("left").run();
+          editor?.chain().focus().setTextAlign('left').run();
         }}
       >
         align left
@@ -94,7 +94,7 @@ const Menubar = (props: { editor: Editor | null }) => {
 
       <button
         onClick={() => {
-          editor?.chain().focus().setTextAlign("center").run();
+          editor?.chain().focus().setTextAlign('center').run();
         }}
       >
         align center
@@ -102,7 +102,7 @@ const Menubar = (props: { editor: Editor | null }) => {
 
       <button
         onClick={() => {
-          editor?.chain().focus().setTextAlign("right").run();
+          editor?.chain().focus().setTextAlign('right').run();
         }}
       >
         align right
@@ -128,7 +128,7 @@ const Menubar = (props: { editor: Editor | null }) => {
         onChange={(event) => {
           props.editor?.chain().focus().setColor(event.target.value).run();
         }}
-        value={props.editor?.getAttributes("textStyle").color ?? "#000000"}
+        value={props.editor?.getAttributes('textStyle').color ?? '#000000'}
         data-testid="setColor"
       />
 

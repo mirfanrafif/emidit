@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import styles from "./Menubar.module.css";
+import styles from './Menubar.module.css';
 
 const SetColorPopup = (props: {
   currentColor: string;

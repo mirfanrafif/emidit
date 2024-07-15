@@ -1,6 +1,6 @@
-import { useState } from "react";
-import "./App.css";
-import TextEditor from "./lib/TextEditor";
+import { useState } from 'react';
+import './App.css';
+import TextEditor from './lib/TextEditor';
 
 function App() {
   const [value, setValue] = useState(
@@ -84,7 +84,7 @@ function App() {
         Property and Experience Management</span
       >
     </h5>
-`
+`,
   );
 
   return (

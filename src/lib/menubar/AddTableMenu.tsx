@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import styles from "./Menubar.module.css";
+import styles from './Menubar.module.css';
 
 const AddTableMenu = (props: {
   onAddTable: (rows: number, columns: number) => void;

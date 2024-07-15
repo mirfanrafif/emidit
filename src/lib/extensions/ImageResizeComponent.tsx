@@ -1,5 +1,5 @@
-import React from "react";
-import { NodeViewWrapper } from "@tiptap/react";
+import React from 'react';
+import { NodeViewWrapper } from '@tiptap/react';
 
 export default function ImageResizeComponent(props: any) {
   const { width, height, ...rest } = props.node.attrs;
@@ -8,9 +8,9 @@ export default function ImageResizeComponent(props: any) {
     if (props.editor.options.editable === false) return;
 
     const parent = (mouseDownEvent.target as HTMLElement).closest(
-      ".image-resizer"
+      '.image-resizer',
     );
-    const image = parent?.querySelector("img.postimage") ?? null;
+    const image = parent?.querySelector('img.postimage') ?? null;
     if (image === null) return;
     const startSize = { x: image.clientWidth, y: image.clientHeight };
     const startPosition = { x: mouseDownEvent.pageX, y: mouseDownEvent.pageY };
@@ -22,11 +22,11 @@ export default function ImageResizeComponent(props: any) {
       });
     }
     function onMouseUp() {
-      document.body.removeEventListener("mousemove", onMouseMove);
+      document.body.removeEventListener('mousemove', onMouseMove);
     }
 
-    document.body.addEventListener("mousemove", onMouseMove);
-    document.body.addEventListener("mouseup", onMouseUp, { once: true });
+    document.body.addEventListener('mousemove', onMouseMove);
+    document.body.addEventListener('mouseup', onMouseUp, { once: true });
   };
   return (
     <NodeViewWrapper className="image-resizer">
@@ -36,14 +36,14 @@ export default function ImageResizeComponent(props: any) {
         src={
           props.extension.options.isPreview &&
           (props.node.attrs.src as string).match(/({{|\[%)/gm)
-            ? "https://placehold.co/600x400?text=Test+Image"
+            ? 'https://placehold.co/600x400?text=Test+Image'
             : props.node.attrs.src
         }
         style={{
-          objectFit: "cover",
+          objectFit: 'cover',
           width: `${width}px`,
           height: `${height}px`,
-          borderRadius: "8px",
+          borderRadius: '8px',
         }}
       />
       <div className="resize-trigger" onMouseDown={handler}>
