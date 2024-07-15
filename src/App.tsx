@@ -9,9 +9,18 @@ function App() {
   );
 
   const preview = useMemo(() => {
-    const deltaLogo =
-      'https://cdn.ems.beta.deltahq.com/public/images/logo/ems-logo-all-colored.svg';
-    return value.replace(/{{delta_logo}}/g, deltaLogo);
+    const placeholders: Record<string, string> = {
+      delta_logo:
+        'https://cdn.ems.beta.deltahq.com/public/images/logo/ems-logo-all-colored.svg',
+      invitation_url: 'https://example.com',
+      vendor_name: 'Yukisawa Ski School',
+      host_name: 'Jade Hotel Group',
+    };
+    const result = value.replace(/{{(.*?)}}/g, (match, p1) => {
+      return placeholders[p1] || match;
+    });
+
+    return result;
   }, [value]);
 
   const [json, setJson] = useState('');
