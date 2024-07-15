@@ -90,12 +90,7 @@ function App() {
   return (
     <div className="App">
       <div className="grid">
-        <TextEditor
-          defaultValue={value}
-          onChange={(newValue) => {
-            setValue(newValue);
-          }}
-        />
+        <TextEditor defaultValue={value} />
       </div>
     </div>
   );
