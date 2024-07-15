@@ -1,7 +1,9 @@
 .ProseMirror {
   position: relative;
   outline: none;
-  width: 640px;
+  max-width: 768px;
+  padding: 0 4rem;
+  box-sizing: border-box;
   margin: 0 auto;
 }
 
@@ -214,4 +216,10 @@
 
 .ProseMirror table tr:not(:last-child) td {
   border-bottom: 1px solid var(--neutrals-greyTableBorder);
+}
+
+@media (max-width: 768px) {
+  .ProseMirror {
+    padding: 0 1rem;
+  }
 }

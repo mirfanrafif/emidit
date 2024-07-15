@@ -54,9 +54,6 @@ export default function TextEditor(props: TextEditorProps) {
           class: styles.buttonExample,
         },
       }),
-      CardExtension.configure({
-        class: "custom_table_wrapper",
-      }),
     ],
     []
   );

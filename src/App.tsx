@@ -4,7 +4,7 @@ import TextEditor from "./lib/TextEditor";
 
 function App() {
   const [value, setValue] = useState(
-    ` <p>
+    `<p>
       <img
         data-type="image-placeholder"
         src="{{delta_logo}}"
