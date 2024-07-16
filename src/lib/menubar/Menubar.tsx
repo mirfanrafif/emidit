@@ -38,6 +38,15 @@ const Menubar = (props: { editor: Editor | null }) => {
         <IconUnderline />
       </button>
       <TextAlignPopup editor={editor} />
+      <input
+        type="color"
+        onChange={(event) => {
+          props.editor?.chain().focus().setColor(event.target.value).run();
+        }}
+        value={props.editor?.getAttributes('textStyle').color ?? '#000000'}
+        data-testid="setColor"
+        className={styles.colorInput}
+      />
 
       <AddTableMenu
         onAddTable={(rows, cols) => {
@@ -52,15 +61,7 @@ const Menubar = (props: { editor: Editor | null }) => {
           });
         }}
       />
-      <input
-        type="color"
-        onChange={(event) => {
-          props.editor?.chain().focus().setColor(event.target.value).run();
-        }}
-        value={props.editor?.getAttributes('textStyle').color ?? '#000000'}
-        data-testid="setColor"
-        className={styles.colorInput}
-      />
+
       <AddImage
         onAddImage={(href) => {
           editor
