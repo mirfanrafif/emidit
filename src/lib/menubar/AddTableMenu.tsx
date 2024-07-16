@@ -1,6 +1,7 @@
 import React from 'react';
 
 import styles from './Menubar.module.css';
+import IconTable from '../icons/icon_table';
 
 const AddTableMenu = (props: {
   onAddTable: (rows: number, columns: number) => void;
@@ -18,7 +19,7 @@ const AddTableMenu = (props: {
         onClick={() => setShowPopup(!showPopup)}
         className={styles.addTableButton}
       >
-        Add Table
+        <IconTable />
       </button>
 
       {showPopup && (

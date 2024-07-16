@@ -1,11 +1,15 @@
-import React from 'react';
-
 import styles from './Menubar.module.css';
 import { Editor } from '@tiptap/react';
 import AddTableMenu from './AddTableMenu';
 import AddButton from './AddButton';
 import AddImage from './AddImage';
 import Headings from './Headings';
+import IconBold from '../icons/icon_bold';
+import IconItalic from '../icons/icon_italic';
+import IconUnderline from '../icons/icon_underline';
+import TextAlignPopup from './TextAlign';
+import IconStrikethrough from '../icons/icon_strikethrough';
+import SectionPopup from './Sections';
 
 const Menubar = (props: { editor: Editor | null }) => {
   const { editor } = props;
@@ -18,52 +22,23 @@ const Menubar = (props: { editor: Editor | null }) => {
         }}
         currentFontSize={editor?.getAttributes('textStyle').fontSize}
       />
-      <button
-        onClick={() => {
-          editor?.chain().focus().setTextHighlight('text-highlight').run();
-        }}
-      >
-        Text Highlight
+      <SectionPopup editor={editor} />
+      <button onClick={() => props.editor?.chain().focus().setBold().run()}>
+        <IconBold />
       </button>
-      <button onClick={() => editor?.chain().focus().setParagraph().run()}>
-        paragraph
+      <button onClick={() => props.editor?.chain().focus().setItalic().run()}>
+        <IconItalic />
       </button>
-      |
-      <button onClick={() => editor?.chain().focus().setBold().run()}>
-        bold
-      </button>
-      <button onClick={() => editor?.chain().focus().setItalic().run()}>
-        italic
-      </button>
-      <button onClick={() => editor?.chain().focus().setStrike().run()}>
-        strike
-      </button>
-      <button onClick={() => editor?.chain().focus().setUnderline().run()}>
-        underline
-      </button>
-      |
-      <button
-        onClick={() => {
-          editor?.chain().focus().setTextAlign('left').run();
-        }}
-      >
-        align left
+      <button onClick={() => props.editor?.chain().focus().setStrike().run()}>
+        <IconStrikethrough />
       </button>
       <button
-        onClick={() => {
-          editor?.chain().focus().setTextAlign('center').run();
-        }}
+        onClick={() => props.editor?.chain().focus().setUnderline().run()}
       >
-        align center
+        <IconUnderline />
       </button>
-      <button
-        onClick={() => {
-          editor?.chain().focus().setTextAlign('right').run();
-        }}
-      >
-        align right
-      </button>
-      |
+      <TextAlignPopup editor={editor} />
+
       <AddTableMenu
         onAddTable={(rows, cols) => {
           editor?.chain().focus().insertTable({ rows, cols }).run();
@@ -84,6 +59,7 @@ const Menubar = (props: { editor: Editor | null }) => {
         }}
         value={props.editor?.getAttributes('textStyle').color ?? '#000000'}
         data-testid="setColor"
+        className={styles.colorInput}
       />
       <AddImage
         onAddImage={(href) => {

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import styles from './Menubar.module.css';
+import IconButton from '../icons/icon_button';
 
 const AddButton = (props: {
   onAddButton: (text: string, href: string) => void;
@@ -18,7 +19,7 @@ const AddButton = (props: {
         onClick={() => setShowPopup(!showPopup)}
         className={styles.addTableButton}
       >
-        Add Button
+        <IconButton />
       </button>
 
       {showPopup && (

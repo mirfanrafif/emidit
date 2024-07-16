@@ -1,6 +1,7 @@
 import React from 'react';
 
 import styles from './Menubar.module.css';
+import IconImage from '../icons/icon_image';
 
 const AddImage = (props: { onAddImage: (href: string) => void }) => {
   const [showPopup, setShowPopup] = React.useState(false);
@@ -15,7 +16,7 @@ const AddImage = (props: { onAddImage: (href: string) => void }) => {
         onClick={() => setShowPopup(!showPopup)}
         className={styles.addTableButton}
       >
-        Add Image
+        <IconImage />
       </button>
 
       {showPopup && (

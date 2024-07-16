@@ -173,7 +173,7 @@
   display: inline-block;
 }
 
-.ProseMirror .text-highlight {
+.text-highlight {
   padding: 16px;
   background-color: var(--neutrals-greyBg);
   border-radius: 8px;

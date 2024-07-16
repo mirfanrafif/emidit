@@ -24,8 +24,7 @@ import { CustomTableExtension } from './extensions/CustomTable.extension';
 import classNames from 'classnames';
 
 import styles from './TextEditor.module.css';
-import { TextHighlightExtension } from './extensions/TextHighlight.extension';
-import { CodeBlock, dracula } from 'react-code-blocks';
+import { CustomSectionExtension } from './extensions/TextHighlight.extension';
 
 import Menubar from './menubar/Menubar';
 
@@ -115,7 +114,7 @@ export default function TextEditor(props: TextEditorProps) {
         style: 'object-fit: cover; border-radius: 8px;',
         inline: true,
       }),
-      TextHighlightExtension,
+      CustomSectionExtension,
     ],
     [props.maxLength, buttonDisplayExtension, buttonSaveExtension],
   );

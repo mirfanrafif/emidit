@@ -1,6 +1,6 @@
 import { mergeAttributes, Node } from '@tiptap/core';
 
-export interface TextHighlightOptions {
+export interface CustomSectionOptions {
   /**
    * The HTML attributes for a paragraph node.
    * @default {}
@@ -16,8 +16,8 @@ declare module '@tiptap/core' {
        * Toggle a paragraph
        * @example editor.commands.toggleParagraph()
        */
-      setTextHighlight: (className: string) => ReturnType;
-      unsetTextHighlight: () => ReturnType;
+      setCustomSection: (className: string) => ReturnType;
+      unsetCustomSection: () => ReturnType;
     };
   }
 }
@@ -26,8 +26,8 @@ declare module '@tiptap/core' {
  * This extension allows you to create paragraphs.
  * @see https://www.tiptap.dev/api/nodes/paragraph
  */
-export const TextHighlightExtension = Node.create({
-  name: 'text-highlight',
+export const CustomSectionExtension = Node.create({
+  name: 'custom-section',
 
   addOptions() {
     return {
@@ -71,14 +71,14 @@ export const TextHighlightExtension = Node.create({
 
   addCommands() {
     return {
-      setTextHighlight:
+      setCustomSection:
         (className) =>
         ({ commands }) => {
           return commands.setNode('text-highlight', {
             class: className ?? 'text-highlight',
           });
         },
-      unsetTextHighlight:
+      unsetCustomSection:
         () =>
         ({ commands }) => {
           return commands.setNode('paragraph');
