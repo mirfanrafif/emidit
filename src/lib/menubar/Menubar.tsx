@@ -44,7 +44,7 @@ const Menubar = (props: { editor: Editor | null }) => {
           props.editor?.chain().focus().setColor(event.target.value).run();
         }}
         value={props.editor?.getAttributes('textStyle').color ?? '#000000'}
-        data-testid="setColor"
+        data-testid="Editor__color"
         className={styles.colorInput}
       />
 
