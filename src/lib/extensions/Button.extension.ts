@@ -29,7 +29,7 @@ export const ButtonExtension = Node.create<ButtonOptions>({
 
   inline: true,
 
-  selectable: false,
+  selectable: true,
 
   addOptions() {
     return {
@@ -68,7 +68,6 @@ export const ButtonExtension = Node.create<ButtonOptions>({
       addButton:
         (attributes: ButtonAttributes) =>
         ({ chain }) => {
-          console.log('attributes', attributes);
           return chain()
             .insertContent([
               {

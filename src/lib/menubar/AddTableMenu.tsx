@@ -5,6 +5,9 @@ import IconTable from '../icons/icon_table';
 
 const AddTableMenu = (props: {
   onAddTable: (rows: number, columns: number) => void;
+  onAddRow: () => void;
+  onAddColumn: () => void;
+  onMergeCells: () => void;
 }) => {
   const [showPopup, setShowPopup] = React.useState(false);
 
@@ -56,6 +59,41 @@ const AddTableMenu = (props: {
           >
             Add Table
           </button>
+
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              marginTop: '10px',
+            }}
+          >
+            <button
+              onClick={() => {
+                props.onAddRow();
+              }}
+            >
+              <i className="fa fa-plus"></i>
+              Add Row
+            </button>
+
+            <button
+              onClick={() => {
+                props.onAddColumn();
+              }}
+            >
+              <i className="fa fa-plus"></i>
+              Add Column
+            </button>
+
+            <button
+              onClick={() => {
+                props.onMergeCells();
+              }}
+            >
+              <i className="fa-regular fa-merge"></i>
+              Merge Cells
+            </button>
+          </div>
         </div>
       )}
     </span>

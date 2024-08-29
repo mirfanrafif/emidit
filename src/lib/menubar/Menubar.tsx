@@ -52,7 +52,17 @@ const Menubar = (props: { editor: Editor | null }) => {
         onAddTable={(rows, cols) => {
           editor?.chain().focus().insertTable({ rows, cols }).run();
         }}
+        onAddRow={() => {
+          editor?.chain().focus().addRowAfter().run();
+        }}
+        onAddColumn={() => {
+          editor?.chain().focus().addColumnAfter().run();
+        }}
+        onMergeCells={() => {
+          editor?.chain().focus().mergeCells().run();
+        }}
       />
+
       <AddButton
         onAddButton={(text, href) => {
           editor?.commands.addButton({

@@ -119,21 +119,24 @@ export default function TextEditor(props: TextEditorProps) {
     [props.maxLength, buttonDisplayExtension, buttonSaveExtension],
   );
 
-  const editor = useEditor({
-    extensions: getExtensions({
-      isPreview: true,
-    }),
-    onBlur: ({ editor }) => {
-      const content = generateHTML(
-        editor.getJSON(),
-        getExtensions({ isPreview: false }),
-      );
-      props.onChange?.(content);
-      props.onChangeJson?.(JSON.stringify(editor.getJSON(), null, 2));
+  const editor = useEditor(
+    {
+      extensions: getExtensions({
+        isPreview: true,
+      }),
+      onBlur: ({ editor }) => {
+        const content = generateHTML(
+          editor.getJSON(),
+          getExtensions({ isPreview: false }),
+        );
+        props.onChange?.(content);
+        props.onChangeJson?.(JSON.stringify(editor.getJSON(), null, 2));
+      },
+      content: props.defaultValue,
+      editable: !props.readonly,
     },
-    content: props.defaultValue,
-    editable: !props.readonly,
-  });
+    [props.defaultValue, props.onChange, props.onChangeJson, props.readonly],
+  );
 
   return (
     <div>

@@ -50,3 +50,8 @@ input {
 }
 
 /* ProseMirror for Tiptap (Rich Text Editor) */
+
+textarea {
+  width: 100%;
+  height: 800px;
+}

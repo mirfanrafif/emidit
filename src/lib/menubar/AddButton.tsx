@@ -13,6 +13,8 @@ const AddButton = (props: {
     href: '',
   });
 
+  const [type, setType] = React.useState('button');
+
   return (
     <span className={styles.addTableAnchor}>
       <button
@@ -40,6 +42,11 @@ const AddButton = (props: {
               setTableData({ ...tableData, href: e.target.value })
             }
           />
+
+          <select name="type">
+            <option value="button">Button</option>
+            <option value="anchor">Anchor</option>
+          </select>
 
           <button
             onClick={() => {
